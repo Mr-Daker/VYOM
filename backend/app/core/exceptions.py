@@ -67,3 +67,7 @@ class RetrievalFailedError(AppException):
 class EmbeddingDimensionMismatchError(AppException):
     def __init__(self, details: dict | None = None):
         super().__init__("EMBEDDING_DIMENSION_MISMATCH", "Dimension mismatch.", 400, details=details)
+
+class CompetencyNotFoundError(AppException):
+    def __init__(self, competency_id: str):
+        super().__init__("COMPETENCY_NOT_FOUND", f"Competency {competency_id} not found.", 404)

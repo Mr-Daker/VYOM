@@ -1,5 +1,6 @@
 import uuid
 from datetime import datetime, timezone
+from sqlalchemy.sql import func
 from sqlalchemy import Column, String, Integer, Float, ForeignKey, DateTime, JSON, Boolean, UniqueConstraint, CheckConstraint, Enum
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import UUID

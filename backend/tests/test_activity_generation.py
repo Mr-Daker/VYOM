@@ -139,7 +139,6 @@ def test_generate_activities_success_and_order(client: TestClient, db_session: S
     fake_llm.responses = [get_valid_content(c_ids), get_valid_content(c_ids), get_valid_content(c_ids)]
 
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text)
     assert res.status_code == 200, res.text
     data = res.json()
     assert data["status"] == "draft"
@@ -165,7 +164,7 @@ def test_generate_unsupported_material(client: TestClient, db_session: Session, 
     }]
 
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={"available_materials": ["notebook"]})
-    print(res.text); assert res.status_code == 502
+    assert res.status_code == 502
     assert res.json()["error"]["code"] == "ACTIVITY_OUTPUT_INVALID"
 
 def test_generate_unknown_citation(client: TestClient, db_session: Session, fake_llm: FakeLLMProvider):
@@ -205,7 +204,7 @@ def test_generate_zero_citations(client: TestClient, db_session: Session, fake_l
         "success_criteria": ["S"], "adaptations": ["A"], "source_chunk_ids": []
     }]
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text); assert res.status_code == 502
+    assert res.status_code == 502
     assert res.json()["error"]["code"] == "ACTIVITY_OUTPUT_INVALID"
 
 def test_generate_wrong_duration(client: TestClient, db_session: Session, fake_llm: FakeLLMProvider):
@@ -214,7 +213,7 @@ def test_generate_wrong_duration(client: TestClient, db_session: Session, fake_l
     fake_llm.responses = [get_valid_content(c_ids)]
     fake_llm.responses[0].duration_minutes = 60
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text); assert res.status_code == 502
+    assert res.status_code == 502
     assert res.json()["error"]["code"] == "ACTIVITY_OUTPUT_INVALID"
 
 def test_generate_invalid_session_state(client: TestClient, db_session: Session, fake_llm: FakeLLMProvider):
@@ -230,7 +229,6 @@ def test_duplicate_generation(client: TestClient, db_session: Session, fake_llm:
     c_ids = [c.id for c in ctx["chunks"]]
     fake_llm.responses = [get_valid_content(c_ids), get_valid_content(c_ids), get_valid_content(c_ids)]
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text)
     assert res.status_code == 200
     
     res2 = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
@@ -283,7 +281,6 @@ def test_rollback_after_flushed_rows(client: TestClient, db_session: Session, fa
     monkeypatch.setattr(GroupActivityRepository, "flush", mock_flush)
     
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text)
     assert res.status_code == 500
     assert res.json()["error"]["code"] == "ACTIVITY_PERSISTENCE_FAILED"
     
@@ -307,7 +304,6 @@ def test_get_persisted_result(client: TestClient, db_session: Session, fake_llm:
     assert res_post.status_code == 200
     
     res = client.get(f"/api/v1/sessions/{ctx['session'].id}/activities")
-    print(res.text)
     assert res.status_code == 200
     assert len(res.json()["activities"]) == 3
 
@@ -706,7 +702,6 @@ def test_hash_audit_stability(client, db_session, fake_llm):
     c_ids = [c.id for c in ctx["chunks"]]
     fake_llm.responses = [get_valid_content(c_ids), get_valid_content(c_ids), get_valid_content(c_ids)]
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text)
     assert res.status_code == 200
     
     from app.models.all_models import GroupActivity
@@ -736,7 +731,6 @@ def test_get_makes_zero_llm_and_retrieval_calls(client, db_session, fake_llm, mo
     c_ids = [c.id for c in ctx["chunks"]]
     fake_llm.responses = [get_valid_content(c_ids), get_valid_content(c_ids), get_valid_content(c_ids)]
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text)
     assert res.status_code == 200
     
     from app.services.curriculum_retrieval import CurriculumRetrievalService
@@ -750,7 +744,6 @@ def test_get_makes_zero_llm_and_retrieval_calls(client, db_session, fake_llm, mo
     monkeypatch.setattr(fake_llm, "generate_structured", mock_generate)
     
     res = client.get(f"/api/v1/sessions/{ctx['session'].id}/activities")
-    print(res.text)
     assert res.status_code == 200
 
 def test_generate_provider_exception(client, db_session, fake_llm):
@@ -766,7 +759,7 @@ def test_invalid_structured_response(client, db_session, fake_llm):
     ctx = setup_context(db_session, num_groups=1)
     fake_llm.responses = [{"invalid": "data"}]
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text); assert res.status_code == 502
+    assert res.status_code == 502
     assert res.json()["error"]["code"] == "ACTIVITY_OUTPUT_INVALID"
 
 def test_citation_snapshot_historical_behavior_and_archive(client, db_session, fake_llm):
@@ -774,7 +767,6 @@ def test_citation_snapshot_historical_behavior_and_archive(client, db_session, f
     c_ids = [c.id for c in ctx["chunks"]]
     fake_llm.responses = [get_valid_content(c_ids), get_valid_content(c_ids), get_valid_content(c_ids)]
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text)
     assert res.status_code == 200
     
     # 1. GET activity, capture snapshot
@@ -812,7 +804,6 @@ def test_prompt_injection_framing(client, db_session, fake_llm):
     c_ids = [c.id for c in ctx["chunks"]]
     fake_llm.responses = [get_valid_content(c_ids), get_valid_content(c_ids), get_valid_content(c_ids)]
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text)
     assert res.status_code == 200
     
     payload = fake_llm.captured_prompts[0]["user_payload"]
@@ -862,7 +853,6 @@ def test_structural_privacy_proof(client, db_session, fake_llm):
     c_ids = [c.id for c in ctx["chunks"]]
     fake_llm.responses = [get_valid_content(c_ids), get_valid_content(c_ids), get_valid_content(c_ids)]
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text)
     assert res.status_code == 200
     
     import json
@@ -904,7 +894,7 @@ def test_identity_override_attack(client, db_session, fake_llm):
         }
     fake_llm.generate_structured = malicious
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={"available_materials": []})
-    print(res.text); assert res.status_code == 502
+    assert res.status_code == 502
 
 def test_session_state_override(client, db_session, fake_llm):
     ctx = setup_context(db_session, num_groups=1)
@@ -919,7 +909,7 @@ def test_session_state_override(client, db_session, fake_llm):
         return base
     fake_llm.generate_structured = malicious
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text); assert res.status_code == 502
+    assert res.status_code == 502
 
 def test_teacher_approval_override(client, db_session, fake_llm):
     ctx = setup_context(db_session, num_groups=1)
@@ -934,7 +924,7 @@ def test_teacher_approval_override(client, db_session, fake_llm):
         return base
     fake_llm.generate_structured = malicious
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text); assert res.status_code == 502
+    assert res.status_code == 502
 
 def test_cross_group_citation_attack(client, db_session, fake_llm, monkeypatch):
     ctx = setup_context(db_session, num_groups=3)
@@ -1002,7 +992,6 @@ def test_group_reason_injection(client, db_session, fake_llm):
     fake_llm.responses = [get_valid_content(c_ids)]
     
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text)
     assert res.status_code == 200
     
     payload = fake_llm.captured_prompts[0]["user_payload"]
@@ -1024,7 +1013,6 @@ def test_material_injection(client, db_session, fake_llm):
     fake_llm.generate_structured = malicious_cite
     
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={"available_materials": [malicious_mat]})
-    print(res.text)
     assert res.status_code == 200
     
     payload = fake_llm.captured_prompts[0]["user_payload"]
@@ -1044,7 +1032,7 @@ def test_system_prompt_in_output_attack(client, db_session, fake_llm):
         }
     fake_llm.generate_structured = malicious
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text); assert res.status_code == 502
+    assert res.status_code == 502
 
 def test_wrong_durations(client, db_session, fake_llm):
     ctx = setup_context(db_session, num_groups=1)
@@ -1062,15 +1050,15 @@ def test_wrong_durations(client, db_session, fake_llm):
         
     fake_llm.generate_structured = malicious(-1)
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text); assert res.status_code == 502
+    assert res.status_code == 502
     
     fake_llm.generate_structured = malicious(44)
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text); assert res.status_code == 502
+    assert res.status_code == 502
 
     fake_llm.generate_structured = malicious(46)
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text); assert res.status_code == 502
+    assert res.status_code == 502
 
 def test_duplicate_materials(client, db_session, fake_llm):
     ctx = setup_context(db_session, num_groups=1)
@@ -1084,7 +1072,7 @@ def test_duplicate_materials(client, db_session, fake_llm):
         }
     fake_llm.generate_structured = duplicate_mats
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text); assert res.status_code == 502
+    assert res.status_code == 502
 
 def test_unsupported_material_and_valid_citation(client, db_session, fake_llm):
     ctx = setup_context(db_session, num_groups=1)
@@ -1103,7 +1091,7 @@ def test_unsupported_material_and_valid_citation(client, db_session, fake_llm):
     # The requirement says: "Unsupported material + valid citation attack... Expected: ACTIVITY_OUTPUT_INVALID". 
     # But does my code currently check that? Let's check `_normalize_materials` usage in generation service.
     # Ah, I'll need to assert 502 anyway, if it fails I'll fix the code later.
-    print(res.text); assert res.status_code == 502
+    assert res.status_code == 502
 
 def test_valid_material_and_unknown_citation(client, db_session, fake_llm):
     ctx = setup_context(db_session, num_groups=1)
@@ -1132,7 +1120,7 @@ def test_very_long_output(client, db_session, fake_llm):
         }
     fake_llm.generate_structured = huge
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text); assert res.status_code == 502
+    assert res.status_code == 502
 
 def test_unicode_handling(client, db_session, fake_llm):
     ctx = setup_context(db_session, num_groups=1)
@@ -1146,7 +1134,6 @@ def test_unicode_handling(client, db_session, fake_llm):
         }
     fake_llm.generate_structured = unicode_gen
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text)
     assert res.status_code == 200
     
     from app.services.activity_generation import ActivityPromptBuilder
@@ -1176,7 +1163,6 @@ def test_persistence_exception_hygiene(client, db_session, fake_llm, monkeypatch
     c_ids = [c.id for c in ctx["chunks"]]
     fake_llm.responses = [get_valid_content(c_ids)]
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text)
     assert res.status_code == 500
     import json
     body = json.dumps(res.json())
@@ -1188,7 +1174,6 @@ def test_json_serialization_payload(client, db_session, fake_llm):
     c_ids = [c.id for c in ctx["chunks"]]
     fake_llm.responses = [get_valid_content(c_ids)]
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text)
     assert res.status_code == 200
     
     import json
@@ -1210,7 +1195,6 @@ def test_provider_mutation_of_input(client, db_session, fake_llm):
         }
     fake_llm.generate_structured = mutating
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={})
-    print(res.text)
     assert res.status_code == 200
     from app.models.all_models import GroupActivity, ClassSession
     acts = db_session.query(GroupActivity).all()
@@ -1224,6 +1208,15 @@ def test_provider_mutation_of_input(client, db_session, fake_llm):
     from app.services.activity_generation import ActivityPromptBuilder
     # Find original prompt hash without the mutation
     assert acts[0].prompt_input_hash is not None
+    from app.services.activity_generation import ActivityPromptBuilder
+    import copy
+    mutated_payload = fake_llm.captured_prompts[0]['user_payload']
+    mutated_hash = ActivityPromptBuilder.hash_payload(mutated_payload)
+    assert acts[0].prompt_input_hash != mutated_hash
+    original_payload = copy.deepcopy(mutated_payload)
+    original_payload['group']['student_count'] = 3
+    original_hash = ActivityPromptBuilder.hash_payload(original_payload)
+    assert acts[0].prompt_input_hash == original_hash
     
 def test_provider_context_mutation(client, db_session, fake_llm):
     ctx = setup_context(db_session, num_groups=1)
@@ -1272,7 +1265,6 @@ def test_normalize_materials_empty_list(client, db_session, fake_llm):
         }
     fake_llm.generate_structured = empty_cite
     res = client.post(f"/api/v1/sessions/{ctx['session'].id}/activities/generate", json={"available_materials": []})
-    print(res.text)
     assert res.status_code == 200
     
     payload = fake_llm.captured_prompts[0]["user_payload"]

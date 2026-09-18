@@ -13,7 +13,7 @@ from app.services.curriculum_retrieval import CurriculumRetrievalService
 from app.services.curriculum_management import CurriculumManagementService
 from app.services.embedding import EmbeddingProvider
 
-router = APIRouter(prefix="/api/v1/curriculum", tags=["curriculum"])
+router = APIRouter(prefix="/curriculum", tags=["curriculum"])
 
 def get_embedding_provider() -> Optional[EmbeddingProvider]:
     return None

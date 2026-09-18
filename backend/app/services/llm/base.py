@@ -17,5 +17,5 @@ class LLMProvider(Protocol):
         system_prompt: str,
         user_payload: Dict[str, Any],
         response_schema: Type[T],
-    ) -> T:
+    ) -> Any:
         ...

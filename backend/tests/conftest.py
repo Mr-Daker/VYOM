@@ -40,7 +40,7 @@ def client(db_session):
             pass
     app.dependency_overrides[get_db] = override_get_db
     yield TestClient(app)
-    del app.dependency_overrides[get_db]
+    app.dependency_overrides.pop(get_db, None)
 
 
 import os

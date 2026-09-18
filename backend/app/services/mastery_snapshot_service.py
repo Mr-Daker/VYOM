@@ -12,10 +12,10 @@ READY_THRESHOLD = 0.70
 CONFIRMED_GAP_THRESHOLD = 0.40
 
 class MasterySnapshot(BaseModel):
-    score: float = None
-    state: MasteryState = None
-    confidence: float = None
-    last_updated: datetime = None
+    score: float | None = None
+    state: MasteryState | None = None
+    confidence: float | None = None
+    last_updated: datetime | None = None
     source: str = "none"
     stale: bool = False
 

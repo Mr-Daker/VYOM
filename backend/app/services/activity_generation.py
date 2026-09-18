@@ -1,3 +1,4 @@
+import copy
 import json
 import hashlib
 from typing import List, Dict, Any, Optional
@@ -35,7 +36,7 @@ class ActivityOutputInvalidError(AppException):
 
 class ActivityGroundingInvalidError(AppException):
     def __init__(self, message: str, details: Optional[Dict] = None):
-        super().__init__("ACTIVITY_GROUNDING_INVALID", message, 502, details)
+        super().__init__("ACTIVITY_GROUNDING_INVALID", message, 422, details)
 
 class ActivityContextInsufficientError(AppException):
     def __init__(self, message: str, details: Optional[Dict] = None):
@@ -299,22 +300,30 @@ class ActivityGenerationService:
                 language=request.language
             )
             
+            # Freeze audit payload before provider call
+            input_hash = ActivityPromptBuilder.hash_payload(user_payload)
+            provider_payload = copy.deepcopy(user_payload)
+            allowed_chunk_ids = frozenset(allowed_chunk_ids)
+            
             # LLM Call
             try:
-                llm_output: GeneratedActivityContent = self.llm.generate_structured(
+                raw_output = self.llm.generate_structured(
                     system_prompt=sys_prompt,
-                    user_payload=user_payload,
+                    user_payload=provider_payload,
                     response_schema=GeneratedActivityContent
                 )
-            except ValidationError as ve:
-                raise ActivityOutputInvalidError("Malformed LLM structured output", {"errors": ve.errors()})
             except Exception as e:
                 # hide exact err
                 raise ActivityGenerationFailedError("Provider failed during generation", {"group_id": str(group.id)})
 
+            try:
+                llm_output = GeneratedActivityContent.model_validate(raw_output)
+            except ValidationError as exc:
+                raise ActivityOutputInvalidError("Malformed LLM structured output", {"errors": [e.get("msg", str(e)) for e in exc.errors()]})
+
             # Validation
             if llm_output.duration_minutes != session.duration_minutes:
-                raise ActivityOutputInvalidError("LLM duration mismatch")
+                raise ActivityOutputInvalidError(f"LLM duration mismatch: {llm_output.duration_minutes} != {session.duration_minutes}")
                 
             for m in llm_output.materials:
                 if m.casefold() not in [mat.casefold() for mat in materials]:
@@ -337,12 +346,6 @@ class ActivityGenerationService:
                 # We enforce no silent deduplication. Must match perfectly.
                 raise ActivityOutputInvalidError("Duplicate source chunk IDs provided")
                 
-            # Verify materials against available materials
-            for m in llm_output.materials:
-                if m.casefold() not in [nm.casefold() for nm in materials]:
-                    raise ActivityOutputInvalidError(f"Material {m} is not in available_materials")
-
-
             activity_data.append({
                 "group": group,
                 "comp": comp,
@@ -351,7 +354,7 @@ class ActivityGenerationService:
                 "output": llm_output,
                 "citations": deduped_source_ids,
                 "retrieval_results": retrieval_res.results,
-                "input_hash": ActivityPromptBuilder.hash_payload(user_payload),
+                "input_hash": input_hash,
                 "output_hash": ActivityPromptBuilder.hash_output(llm_output),
                 "generation_order": idx
             })

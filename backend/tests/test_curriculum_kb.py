@@ -19,7 +19,7 @@ from app.services.text_processor import normalize_text, hash_text, chunk_text
 from app.services.curriculum_retrieval import lexical_similarity, cosine_similarity
 from app.core.exceptions import CurriculumDocumentDuplicateError
 
-from app.api.main import app
+from app.main import app
 from app.api.routes.curriculum import get_embedding_provider
 from app.services.embedding import FakeEmbeddingProvider
 

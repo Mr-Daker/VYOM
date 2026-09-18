@@ -10,6 +10,7 @@ class FakeLLMProvider:
         self._provider_name = "fake"
         self._model_name = "fake-model-1"
         self.responses: List[Any] = []
+        self.captured_outputs: List[Any] = []
         self.captured_prompts: List[Dict[str, Any]] = []
 
     @property
@@ -26,7 +27,7 @@ class FakeLLMProvider:
         system_prompt: str,
         user_payload: Dict[str, Any],
         response_schema: Type[T],
-    ) -> T:
+    ) -> Any:
         self.call_count += 1
         self.captured_prompts.append({
             "system_prompt": system_prompt,
@@ -37,14 +38,9 @@ class FakeLLMProvider:
             raise RuntimeError("FakeLLMProvider ran out of configured responses")
 
         response = self.responses.pop(0)
+        self.captured_outputs.append(response)
         
         if isinstance(response, Exception):
             raise response
-        
-        if isinstance(response, response_schema):
-            return response
             
-        if isinstance(response, dict):
-            return response_schema.model_validate(response)
-        
-        return response_schema.model_validate_json(response)
+        return response
