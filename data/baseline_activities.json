@@ -1,0 +1,338 @@
+[
+  {
+    "id": "BASE-01",
+    "title": "Tens-and-ones recovery",
+    "objective": "Learners will demonstrate add two-digit numbers without regrouping (N4).",
+    "activity_type": "Recovery activity",
+    "competency_id": "N4",
+    "target_level": "RECOVERY",
+    "group_id": "BASE-G1",
+    "duration_minutes": 15,
+    "materials_needed": [
+      "sticks (bundles of 10)",
+      "bottle caps",
+      "number cards (1-100)"
+    ],
+    "teacher_involvement_required": true,
+    "student_instructions": [
+      "Build one example of add two-digit numbers without regrouping with sticks (bundles of 10).",
+      "Say what each group of ten and each one represents.",
+      "Solve a second example with less teacher help, then explain the step that was previously missed."
+    ],
+    "expected_response": "Learner represents the quantities, explains the prerequisite step, and completes one correct example.",
+    "quick_check": "Ask the learner to solve 34 + 12 and explain the tens and ones.",
+    "source_reference": "NCERT Mathematics Grade 2 · Two-digit addition · N4",
+    "language": "English",
+    "status": "draft",
+    "generated_by": "manual-baseline",
+    "recovery_reason": ""
+  },
+  {
+    "id": "BASE-02",
+    "title": "Worked example launch",
+    "objective": "Learners will demonstrate add two-digit numbers without regrouping (N4).",
+    "activity_type": "Guided practice",
+    "competency_id": "N4",
+    "target_level": "Not yet learned",
+    "group_id": "BASE-G2",
+    "duration_minutes": 15,
+    "materials_needed": [
+      "sticks (bundles of 10)",
+      "bottle caps",
+      "number cards (1-100)"
+    ],
+    "teacher_involvement_required": true,
+    "student_instructions": [
+      "Watch or read one worked example of add two-digit numbers without regrouping.",
+      "Rebuild the example with sticks (bundles of 10).",
+      "Complete one similar problem and point to the step that changes the quantity."
+    ],
+    "expected_response": "Learner copies the model and completes one parallel example with a prompt.",
+    "quick_check": "Show one new two-digit example and ask: which digit is tens and which is ones?",
+    "source_reference": "NCERT Mathematics Grade 2 · Two-digit addition · N4",
+    "language": "English",
+    "status": "draft",
+    "generated_by": "manual-baseline",
+    "recovery_reason": ""
+  },
+  {
+    "id": "BASE-03",
+    "title": "Solve, explain, check",
+    "objective": "Learners will demonstrate add two-digit numbers without regrouping (N4).",
+    "activity_type": "Peer activity",
+    "competency_id": "N4",
+    "target_level": "Developing",
+    "group_id": "BASE-G3",
+    "duration_minutes": 15,
+    "materials_needed": [
+      "sticks (bundles of 10)",
+      "bottle caps",
+      "number cards (1-100)"
+    ],
+    "teacher_involvement_required": false,
+    "student_instructions": [
+      "Solve two examples that practise add two-digit numbers without regrouping.",
+      "Take turns: one learner solves while the other checks each step.",
+      "If answers differ, use the material or place-value drawing to find the error."
+    ],
+    "expected_response": "Learner solves two examples and gives a place-value explanation for one answer.",
+    "quick_check": "Ask for one answer and one sentence explaining how it was found.",
+    "source_reference": "NCERT Mathematics Grade 2 · Two-digit addition · N4",
+    "language": "English",
+    "status": "draft",
+    "generated_by": "manual-baseline",
+    "recovery_reason": ""
+  },
+  {
+    "id": "BASE-04",
+    "title": "Apply in a new context",
+    "objective": "Learners will demonstrate add two-digit numbers without regrouping (N4).",
+    "activity_type": "Extension activity",
+    "competency_id": "N4",
+    "target_level": "Mastered",
+    "group_id": "BASE-G4",
+    "duration_minutes": 15,
+    "materials_needed": [
+      "sticks (bundles of 10)",
+      "bottle caps",
+      "number cards (1-100)"
+    ],
+    "teacher_involvement_required": false,
+    "student_instructions": [
+      "Create a short story problem that requires add two-digit numbers without regrouping.",
+      "Solve it using a written method and a drawing or material model.",
+      "Swap with a partner, check the solution, and improve any unclear wording."
+    ],
+    "expected_response": "Learner creates a valid problem, solves it, and verifies a partner's reasoning.",
+    "quick_check": "Check that the story, number sentence, and answer all agree.",
+    "source_reference": "NCERT Mathematics Grade 2 · Two-digit addition · N4",
+    "language": "English",
+    "status": "draft",
+    "generated_by": "manual-baseline",
+    "recovery_reason": ""
+  },
+  {
+    "id": "BASE-05",
+    "title": "Check, model, retry",
+    "objective": "Learners will demonstrate subtract two-digit numbers without borrowing (N6).",
+    "activity_type": "Recovery activity",
+    "competency_id": "N6",
+    "target_level": "RECOVERY",
+    "group_id": "BASE-G5",
+    "duration_minutes": 15,
+    "materials_needed": [
+      "sticks (bundles of 10)",
+      "bottle caps",
+      "number cards (1-100)"
+    ],
+    "teacher_involvement_required": true,
+    "student_instructions": [
+      "Build one example of subtract two-digit numbers without borrowing with sticks (bundles of 10).",
+      "Say what each group of ten and each one represents.",
+      "Solve a second example with less teacher help, then explain the step that was previously missed."
+    ],
+    "expected_response": "Learner represents the quantities, explains the prerequisite step, and completes one correct example.",
+    "quick_check": "Ask the learner to solve 34 + 12 and explain the tens and ones.",
+    "source_reference": "NCERT Mathematics Grade 3 · Two-digit subtraction · N6",
+    "language": "English",
+    "status": "draft",
+    "generated_by": "manual-baseline",
+    "recovery_reason": ""
+  },
+  {
+    "id": "BASE-06",
+    "title": "See it, build it, say it",
+    "objective": "Learners will demonstrate subtract two-digit numbers without borrowing (N6).",
+    "activity_type": "Local-material/manipulative activity",
+    "competency_id": "N6",
+    "target_level": "Not yet learned",
+    "group_id": "BASE-G6",
+    "duration_minutes": 15,
+    "materials_needed": [
+      "sticks (bundles of 10)",
+      "bottle caps",
+      "number cards (1-100)"
+    ],
+    "teacher_involvement_required": false,
+    "student_instructions": [
+      "Build each quantity with sticks (bundles of 10), then complete the operation.",
+      "Rebuild the example with sticks (bundles of 10).",
+      "Complete one similar problem and point to the step that changes the quantity."
+    ],
+    "expected_response": "Learner copies the model and completes one parallel example with a prompt.",
+    "quick_check": "Show one new two-digit example and ask: which digit is tens and which is ones?",
+    "source_reference": "NCERT Mathematics Grade 3 · Two-digit subtraction · N6",
+    "language": "English",
+    "status": "draft",
+    "generated_by": "manual-baseline",
+    "recovery_reason": ""
+  },
+  {
+    "id": "BASE-07",
+    "title": "Partner practice with evidence",
+    "objective": "Learners will demonstrate subtract two-digit numbers without borrowing (N6).",
+    "activity_type": "Independent worksheet",
+    "competency_id": "N6",
+    "target_level": "Developing",
+    "group_id": "BASE-G7",
+    "duration_minutes": 15,
+    "materials_needed": [
+      "sticks (bundles of 10)",
+      "bottle caps",
+      "number cards (1-100)"
+    ],
+    "teacher_involvement_required": false,
+    "student_instructions": [
+      "Solve two examples that practise subtract two-digit numbers without borrowing.",
+      "Complete the two examples independently before checking with a partner.",
+      "If answers differ, use the material or place-value drawing to find the error."
+    ],
+    "expected_response": "Learner solves two examples and gives a place-value explanation for one answer.",
+    "quick_check": "Ask for one answer and one sentence explaining how it was found.",
+    "source_reference": "NCERT Mathematics Grade 3 · Two-digit subtraction · N6",
+    "language": "English",
+    "status": "draft",
+    "generated_by": "manual-baseline",
+    "recovery_reason": ""
+  },
+  {
+    "id": "BASE-08",
+    "title": "Find two valid strategies",
+    "objective": "Learners will demonstrate subtract two-digit numbers without borrowing (N6).",
+    "activity_type": "Extension activity",
+    "competency_id": "N6",
+    "target_level": "Mastered",
+    "group_id": "BASE-G8",
+    "duration_minutes": 15,
+    "materials_needed": [
+      "sticks (bundles of 10)",
+      "bottle caps",
+      "number cards (1-100)"
+    ],
+    "teacher_involvement_required": false,
+    "student_instructions": [
+      "Create a short story problem that requires subtract two-digit numbers without borrowing.",
+      "Solve it using a written method and a drawing or material model.",
+      "Swap with a partner, check the solution, and improve any unclear wording."
+    ],
+    "expected_response": "Learner creates a valid problem, solves it, and verifies a partner's reasoning.",
+    "quick_check": "Check that the story, number sentence, and answer all agree.",
+    "source_reference": "NCERT Mathematics Grade 3 · Two-digit subtraction · N6",
+    "language": "English",
+    "status": "draft",
+    "generated_by": "manual-baseline",
+    "recovery_reason": ""
+  },
+  {
+    "id": "BASE-09",
+    "title": "छूटी हुई कड़ी जोड़ें",
+    "objective": "विद्यार्थी बिना हासिल के दो अंकों का जोड़ का प्रमाण देंगे (N4)।",
+    "activity_type": "Recovery activity",
+    "competency_id": "N4",
+    "target_level": "RECOVERY",
+    "group_id": "BASE-G9",
+    "duration_minutes": 15,
+    "materials_needed": [
+      "sticks (bundles of 10)",
+      "bottle caps",
+      "number cards (1-100)"
+    ],
+    "teacher_involvement_required": true,
+    "student_instructions": [
+      "sticks (bundles of 10) से बिना हासिल के दो अंकों का जोड़ का एक उदाहरण बनाएँ।",
+      "हर दहाई और इकाई का अर्थ बोलकर बताएँ।",
+      "दूसरा उदाहरण कम सहायता से हल करें और छूटा हुआ चरण समझाएँ।"
+    ],
+    "expected_response": "विद्यार्थी सही उदाहरण हल करेगा और एक चरण का कारण बताएगा।",
+    "quick_check": "एक नया सवाल दें और विद्यार्थी से उत्तर के साथ तरीका बताने को कहें।",
+    "source_reference": "NCERT Mathematics Grade 2 · Two-digit addition · N4 · Hindi scaffold",
+    "language": "Hindi",
+    "status": "draft",
+    "generated_by": "manual-baseline",
+    "recovery_reason": ""
+  },
+  {
+    "id": "BASE-10",
+    "title": "साथी के साथ अभ्यास",
+    "objective": "विद्यार्थी बिना हासिल के दो अंकों का जोड़ का प्रमाण देंगे (N4)।",
+    "activity_type": "Peer activity",
+    "competency_id": "N4",
+    "target_level": "Developing",
+    "group_id": "BASE-G10",
+    "duration_minutes": 15,
+    "materials_needed": [
+      "sticks (bundles of 10)",
+      "bottle caps",
+      "number cards (1-100)"
+    ],
+    "teacher_involvement_required": false,
+    "student_instructions": [
+      "बिना हासिल के दो अंकों का जोड़ के दो सवाल हल करें।",
+      "साथी से उत्तर मिलाएँ और एक चरण बोलकर समझाएँ।",
+      "उत्तर अलग हों तो sticks (bundles of 10) से गलती खोजें।"
+    ],
+    "expected_response": "विद्यार्थी सही उदाहरण हल करेगा और एक चरण का कारण बताएगा।",
+    "quick_check": "एक नया सवाल दें और विद्यार्थी से उत्तर के साथ तरीका बताने को कहें।",
+    "source_reference": "NCERT Mathematics Grade 2 · Two-digit addition · N4 · Hindi scaffold",
+    "language": "Hindi",
+    "status": "draft",
+    "generated_by": "manual-baseline",
+    "recovery_reason": ""
+  },
+  {
+    "id": "BASE-11",
+    "title": "उदाहरण देखकर सीखें",
+    "objective": "विद्यार्थी बिना उधार के दो अंकों का घटाव का प्रमाण देंगे (N6)।",
+    "activity_type": "Local-material/manipulative activity",
+    "competency_id": "N6",
+    "target_level": "Not yet learned",
+    "group_id": "BASE-G11",
+    "duration_minutes": 15,
+    "materials_needed": [
+      "sticks (bundles of 10)",
+      "bottle caps",
+      "number cards (1-100)"
+    ],
+    "teacher_involvement_required": false,
+    "student_instructions": [
+      "बिना उधार के दो अंकों का घटाव का एक हल किया हुआ उदाहरण देखें।",
+      "उसी उदाहरण को sticks (bundles of 10) से दोबारा बनाएँ।",
+      "मिलता-जुलता एक सवाल हल करें और बदला हुआ चरण दिखाएँ।"
+    ],
+    "expected_response": "विद्यार्थी सही उदाहरण हल करेगा और एक चरण का कारण बताएगा।",
+    "quick_check": "एक नया सवाल दें और विद्यार्थी से उत्तर के साथ तरीका बताने को कहें।",
+    "source_reference": "NCERT Mathematics Grade 3 · Two-digit subtraction · N6 · Hindi scaffold",
+    "language": "Hindi",
+    "status": "draft",
+    "generated_by": "manual-baseline",
+    "recovery_reason": ""
+  },
+  {
+    "id": "BASE-12",
+    "title": "सवाल बनाएँ और चुनौती दें",
+    "objective": "विद्यार्थी बिना उधार के दो अंकों का घटाव का प्रमाण देंगे (N6)।",
+    "activity_type": "Extension activity",
+    "competency_id": "N6",
+    "target_level": "Mastered",
+    "group_id": "BASE-G12",
+    "duration_minutes": 15,
+    "materials_needed": [
+      "sticks (bundles of 10)",
+      "bottle caps",
+      "number cards (1-100)"
+    ],
+    "teacher_involvement_required": false,
+    "student_instructions": [
+      "बिना उधार के दो अंकों का घटाव पर एक छोटा कहानी-सवाल बनाएँ।",
+      "उसे लिखित तरीके और चित्र या सामग्री से हल करें।",
+      "साथी से बदलकर उत्तर जाँचें और सवाल को स्पष्ट बनाएँ।"
+    ],
+    "expected_response": "विद्यार्थी सही उदाहरण हल करेगा और एक चरण का कारण बताएगा।",
+    "quick_check": "एक नया सवाल दें और विद्यार्थी से उत्तर के साथ तरीका बताने को कहें।",
+    "source_reference": "NCERT Mathematics Grade 3 · Two-digit subtraction · N6 · Hindi scaffold",
+    "language": "Hindi",
+    "status": "draft",
+    "generated_by": "manual-baseline",
+    "recovery_reason": ""
+  }
+]

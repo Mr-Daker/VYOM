@@ -1,0 +1,164 @@
+[
+  {
+    "subject": "Numeracy",
+    "grade": 1,
+    "competency_id": "N1",
+    "language": "English",
+    "source_reference": "NIPUN Bharat FLN Guidelines · Numeracy · N1",
+    "content": "Count a set of up to 20 concrete objects accurately by touching or moving each object once. Connect the spoken number sequence to the quantity."
+  },
+  {
+    "subject": "Numeracy",
+    "grade": 1,
+    "competency_id": "N1",
+    "language": "Hindi",
+    "source_reference": "NIPUN Bharat FLN Guidelines · Numeracy · N1 · Hindi scaffold",
+    "content": "20 तक ठोस वस्तुओं को एक-एक बार छूकर या हटाकर सही गिनें और बोली गई संख्या को मात्रा से जोड़ें।"
+  },
+  {
+    "subject": "Numeracy",
+    "grade": 1,
+    "competency_id": "N2",
+    "language": "English",
+    "source_reference": "NIPUN Bharat FLN Guidelines · Numeracy · N2",
+    "content": "Compare two collections or numerals and describe which is more, less, or equal. Begin with concrete collections before symbols."
+  },
+  {
+    "subject": "Numeracy",
+    "grade": 1,
+    "competency_id": "N2",
+    "language": "Hindi",
+    "source_reference": "NIPUN Bharat FLN Guidelines · Numeracy · N2 · Hindi scaffold",
+    "content": "दो समूहों या संख्याओं की तुलना करके बताएँ कि कौन अधिक, कम या बराबर है। पहले ठोस वस्तुओं से तुलना करें।"
+  },
+  {
+    "subject": "Numeracy",
+    "grade": 2,
+    "competency_id": "N3",
+    "language": "English",
+    "source_reference": "NCERT Mathematics Grade 2 · Tens and ones · N3",
+    "content": "Represent a two-digit number as bundles of ten and single ones. Read and write the matching numeral and explain the place value of each digit."
+  },
+  {
+    "subject": "Numeracy",
+    "grade": 2,
+    "competency_id": "N3",
+    "language": "Hindi",
+    "source_reference": "NCERT Mathematics Grade 2 · Tens and ones · N3 · Hindi scaffold",
+    "content": "दो अंकों की संख्या को दस-दस के बंडल और इकाइयों में दिखाएँ। संख्या लिखें और हर अंक का स्थान-मूल्य बताएँ।"
+  },
+  {
+    "subject": "Numeracy",
+    "grade": 2,
+    "competency_id": "N4",
+    "language": "English",
+    "source_reference": "NCERT Mathematics Grade 2 · Two-digit addition · N4",
+    "content": "Add two-digit numbers without regrouping by combining ones with ones and tens with tens. Learners should connect concrete bundles, place-value drawings, and the written number sentence."
+  },
+  {
+    "subject": "Numeracy",
+    "grade": 2,
+    "competency_id": "N4",
+    "language": "Hindi",
+    "source_reference": "NCERT Mathematics Grade 2 · Two-digit addition · N4 · Hindi scaffold",
+    "content": "इकाइयों को इकाइयों से और दहाइयों को दहाइयों से जोड़कर बिना हासिल के दो अंकों का जोड़ करें। ठोस बंडल, स्थान-मूल्य चित्र और संख्या-वाक्य को जोड़ें।"
+  },
+  {
+    "subject": "Numeracy",
+    "grade": 2,
+    "competency_id": "N5",
+    "language": "English",
+    "source_reference": "NCERT Mathematics Grade 2 · Regrouping in addition · N5",
+    "content": "Add two-digit numbers by composing ten ones into one ten. Show the regrouping with concrete bundles before recording it in a written method."
+  },
+  {
+    "subject": "Numeracy",
+    "grade": 2,
+    "competency_id": "N5",
+    "language": "Hindi",
+    "source_reference": "NCERT Mathematics Grade 2 · Regrouping in addition · N5 · Hindi scaffold",
+    "content": "दस इकाइयों को एक दहाई में बदलकर दो अंकों का जोड़ करें। लिखित तरीके से पहले बंडल बनाकर हासिल दिखाएँ।"
+  },
+  {
+    "subject": "Numeracy",
+    "grade": 3,
+    "competency_id": "N6",
+    "language": "English",
+    "source_reference": "NCERT Mathematics Grade 3 · Two-digit subtraction · N6",
+    "content": "Subtract two-digit numbers without borrowing by removing ones from ones and tens from tens. Connect a concrete model, a place-value drawing, and the written number sentence."
+  },
+  {
+    "subject": "Numeracy",
+    "grade": 3,
+    "competency_id": "N6",
+    "language": "Hindi",
+    "source_reference": "NCERT Mathematics Grade 3 · Two-digit subtraction · N6 · Hindi scaffold",
+    "content": "इकाइयों में से इकाइयाँ और दहाइयों में से दहाइयाँ हटाकर बिना उधार के दो अंकों का घटाव करें। ठोस मॉडल, स्थान-मूल्य चित्र और संख्या-वाक्य को जोड़ें।"
+  },
+  {
+    "subject": "Numeracy",
+    "grade": 3,
+    "competency_id": "N7",
+    "language": "English",
+    "source_reference": "NCERT Mathematics Grade 3 · Borrowing in subtraction · N7",
+    "content": "Subtract two-digit numbers by decomposing one ten into ten ones when needed. Explain why the total quantity stays the same during the exchange."
+  },
+  {
+    "subject": "Numeracy",
+    "grade": 3,
+    "competency_id": "N7",
+    "language": "Hindi",
+    "source_reference": "NCERT Mathematics Grade 3 · Borrowing in subtraction · N7 · Hindi scaffold",
+    "content": "ज़रूरत पर एक दहाई को दस इकाइयों में बदलकर दो अंकों का घटाव करें। बताएँ कि बदलने पर कुल मात्रा समान क्यों रहती है।"
+  },
+  {
+    "subject": "Reading", "grade": 1, "competency_id": "R1", "language": "English",
+    "source_reference": "NIPUN Bharat FLN Guidelines · Reading · R1",
+    "content": "Recognise familiar letters and connect each to a common sound using pictures and spoken examples."
+  },
+  {
+    "subject": "Reading", "grade": 1, "competency_id": "R1", "language": "Hindi",
+    "source_reference": "NIPUN Bharat FLN Guidelines · Reading · R1 · Hindi scaffold",
+    "content": "परिचित अक्षर पहचानें और चित्र तथा बोले गए उदाहरण से सामान्य ध्वनि जोड़ें।"
+  },
+  {
+    "subject": "Reading", "grade": 1, "competency_id": "R2", "language": "English",
+    "source_reference": "NIPUN Bharat FLN Guidelines · Reading · R2",
+    "content": "Blend familiar letter sounds to read common words and match each word to a picture or object."
+  },
+  {
+    "subject": "Reading", "grade": 1, "competency_id": "R2", "language": "Hindi",
+    "source_reference": "NIPUN Bharat FLN Guidelines · Reading · R2 · Hindi scaffold",
+    "content": "परिचित अक्षर-ध्वनियों को जोड़कर सामान्य शब्द पढ़ें और शब्द को चित्र या वस्तु से मिलाएँ।"
+  },
+  {
+    "subject": "Reading", "grade": 2, "competency_id": "R3", "language": "English",
+    "source_reference": "NCERT Language Grade 2 · Sentence reading · R3",
+    "content": "Read short familiar sentences, attend to word order and punctuation, and show meaning through a simple response."
+  },
+  {
+    "subject": "Reading", "grade": 2, "competency_id": "R3", "language": "Hindi",
+    "source_reference": "NCERT Language Grade 2 · Sentence reading · R3 · Hindi scaffold",
+    "content": "छोटे परिचित वाक्य पढ़ें, शब्द-क्रम और विराम-चिह्न पर ध्यान दें और सरल उत्तर से अर्थ दिखाएँ।"
+  },
+  {
+    "subject": "Reading", "grade": 2, "competency_id": "R4", "language": "English",
+    "source_reference": "NCERT Language Grade 2 · Paragraph fluency · R4",
+    "content": "Read a short familiar paragraph accurately with phrasing, then retell the main event in sequence."
+  },
+  {
+    "subject": "Reading", "grade": 2, "competency_id": "R4", "language": "Hindi",
+    "source_reference": "NCERT Language Grade 2 · Paragraph fluency · R4 · Hindi scaffold",
+    "content": "छोटा परिचित अनुच्छेद सही गति और ठहराव के साथ पढ़ें, फिर मुख्य घटना क्रम से बताएँ।"
+  },
+  {
+    "subject": "Reading", "grade": 3, "competency_id": "R5", "language": "English",
+    "source_reference": "NCERT Language Grade 3 · Literal comprehension · R5",
+    "content": "Read a short paragraph and answer who, what, where, or when questions using evidence from the text."
+  },
+  {
+    "subject": "Reading", "grade": 3, "competency_id": "R5", "language": "Hindi",
+    "source_reference": "NCERT Language Grade 3 · Literal comprehension · R5 · Hindi scaffold",
+    "content": "छोटा अनुच्छेद पढ़ें और पाठ के प्रमाण से कौन, क्या, कहाँ या कब के प्रश्नों का उत्तर दें।"
+  }
+]

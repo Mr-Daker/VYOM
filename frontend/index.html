@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173f3a">
+  <meta name="description" content="Teacher-first orchestration for multigrade foundational classrooms">
+  <title>Saarthi-MG · Classroom Orchestrator</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar no-print" aria-label="Main navigation">
+      <a class="brand" href="#dashboard" data-nav="dashboard" aria-label="Saarthi-MG dashboard">
+        <span class="brand-mark">सा</span>
+        <span><strong>Saarthi-MG</strong><small>Classroom Orchestrator</small></span>
+      </a>
+
+      <div class="class-card">
+        <div class="eyebrow">TODAY'S CLASS</div>
+        <strong id="side-class-name">Loading classroom…</strong>
+        <span><span id="side-date">—</span> · <span id="side-duration">—</span> min</span>
+      </div>
+
+      <nav class="nav-list">
+        <button class="nav-item active" data-nav="dashboard"><span>01</span>Overview</button>
+        <button class="nav-item" data-nav="attendance"><span>02</span>Attendance</button>
+        <button class="nav-item" data-nav="groups"><span>03</span>Learning groups</button>
+        <button class="nav-item" data-nav="plan"><span>04</span>Rotation plan</button>
+        <button class="nav-item" data-nav="endclass"><span>05</span>Exit evidence</button>
+        <button class="nav-item" data-nav="evidence"><span>06</span>Evaluation</button>
+      </nav>
+
+      <div class="privacy-note">
+        <span class="status-dot"></span>
+        <div><strong>Teacher decides</strong><small>AI suggestions stay editable. No photos or audio.</small></div>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar no-print">
+        <div>
+          <button class="mobile-menu" id="mobile-menu" aria-label="Open menu">☰</button>
+          <span class="connection" id="connection"><span></span> Saved locally</span>
+        </div>
+        <div class="top-actions">
+          <button class="button ghost" id="print-button" hidden>Print classroom pack</button>
+          <button class="button demo" id="reset-demo">▶ Start 3-minute demo</button>
+        </div>
+      </header>
+
+      <section class="demo-rail no-print" id="demo-rail" hidden aria-live="polite">
+        <div><span class="live-dot"></span><strong>Rajkumar demo</strong></div>
+        <ol>
+          <li data-demo-step="attendance">Mark return</li>
+          <li data-demo-step="groups">Find gap</li>
+          <li data-demo-step="plan">Protect teacher time</li>
+          <li data-demo-step="approve">Approve</li>
+          <li data-demo-step="evidence">Record evidence</li>
+          <li data-demo-step="regroup">Regroup</li>
+        </ol>
+        <span id="demo-time">Target: under 3:00</span>
+      </section>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+      <section class="screen active" id="screen-dashboard" data-screen="dashboard">
+        <div class="page-heading">
+          <div><p class="eyebrow">ONE TEACHER · GRADES 1–3</p><h1>Know who needs you now.</h1><p>Turn attendance and learning evidence into a workable class—not another generic lesson plan.</p></div>
+          <button class="button primary" data-nav="attendance">Take attendance <span>→</span></button>
+        </div>
+
+        <div class="summary-grid" id="summary-grid" aria-label="Classroom summary"></div>
+
+        <div class="dashboard-grid">
+          <article class="panel setup-panel">
+            <div class="panel-heading"><div><p class="eyebrow">CLASS CONSTRAINTS</p><h2>Plan around what is available</h2></div><span class="pill neutral">Teacher device only</span></div>
+            <div class="form-grid">
+              <label>Learning objective<select id="objective-select"></select></label>
+              <label>Instruction language<select id="language-select"><option>English</option><option>Hindi</option><option>Auto</option></select></label>
+              <label>Class length<select id="duration-select"><option value="30">30 minutes</option><option value="45">45 minutes</option><option value="60">60 minutes</option></select></label>
+              <label>Rotation length<select id="slot-select"><option value="10">10 minutes</option><option value="15">15 minutes</option><option value="20">20 minutes</option></select></label>
+            </div>
+            <fieldset class="material-fieldset"><legend>Materials here today</legend><div id="material-options" class="chip-options"></div></fieldset>
+            <div class="panel-actions"><span id="setup-status">Settings are persisted between restarts.</span><button class="button secondary" id="save-setup">Save setup</button></div>
+          </article>
+
+          <article class="panel spotlight" id="raj-spotlight">
+            <p class="eyebrow">RETURNING LEARNER</p>
+            <div class="student-avatar">R</div>
+            <h2>Rajkumar is back today</h2>
+            <p>He saw the addition introduction, then missed practice. Today’s subtraction lesson depends on that step.</p>
+            <div class="reason-box"><span>?</span><p><strong>Needs verification</strong>Absence is not treated as failure. A two-minute check confirms whether recovery is needed.</p></div>
+            <button class="text-button" data-nav="attendance">See him in attendance →</button>
+          </article>
+        </div>
+
+        <article class="panel loop-panel">
+          <div class="panel-heading"><div><p class="eyebrow">THE CLOSED LOOP</p><h2>Evidence changes tomorrow’s plan</h2></div></div>
+          <div class="loop-flow"><span>Attendance</span><i>→</i><span>Gaps</span><i>→</i><span>Groups</span><i>→</i><strong>Teacher attention</strong><i>→</i><span>Activities</span><i>→</i><span>Exit evidence</span><i>↻</i></div>
+        </article>
+      </section>
+
+      <section class="screen" id="screen-attendance" data-screen="attendance">
+        <div class="page-heading compact"><div><p class="eyebrow">STEP 1 OF 4</p><h1>Who is here today?</h1><p>A returning badge signals a possible missed-learning gap, never a verdict.</p></div><div class="heading-actions"><button class="button ghost" id="mark-all-present">Mark all present</button><button class="button primary" id="save-attendance">Save & find learning needs <span>→</span></button></div></div>
+        <div class="panel toolbar"><label class="search"><span>⌕</span><input id="attendance-search" type="search" placeholder="Find a learner"></label><span id="attendance-count">—</span></div>
+        <div class="attendance-table panel" id="attendance-list"></div>
+      </section>
+
+      <section class="screen" id="screen-groups" data-screen="groups">
+        <div class="page-heading compact"><div><p class="eyebrow">STEP 2 OF 4</p><h1>Flexible learning groups</h1><p>Learning need comes first. Home language selects a scaffold; it never overrides the learning need.</p></div><div class="heading-actions"><button class="button ghost" id="save-group-overrides">Save my changes</button><button class="button primary" id="build-plan">Build rotation plan <span>→</span></button></div></div>
+        <div class="teacher-first-banner" id="teacher-first-banner"></div>
+        <div class="group-grid" id="group-grid"></div>
+      </section>
+
+      <section class="screen" id="screen-plan" data-screen="plan">
+        <div class="page-heading compact"><div><p class="eyebrow">STEP 3 OF 4</p><h1>Every group has meaningful work</h1><p>The teacher is assigned to one group at a time. Click any activity to review or edit it.</p></div><div class="heading-actions"><button class="button ghost" id="regenerate-plan">Rebuild plan</button><button class="button primary" id="approve-plan">Approve this plan <span>✓</span></button></div></div>
+        <div class="plan-meta" id="plan-meta"></div>
+        <div class="rotation-wrap panel" id="rotation-wrap"></div>
+        <div class="plan-footer"><div><span class="legend teacher"></span> Teacher station <span class="legend peer"></span> Peer station <span class="legend independent"></span> Independent station</div><button class="text-button" data-nav="endclass">Go to exit evidence →</button></div>
+      </section>
+
+      <section class="screen" id="screen-endclass" data-screen="endclass">
+        <div class="page-heading compact"><div><p class="eyebrow">STEP 4 OF 4</p><h1>Two taps can change tomorrow.</h1><p>Record only the evidence you observed. Unassessed learners keep their existing mastery.</p></div><button class="button primary" id="prepare-next">Update mastery & regroup <span>↻</span></button></div>
+        <div class="evidence-callout" id="raj-evidence-callout"></div>
+        <div id="evidence-groups"></div>
+        <div class="result-panel" id="next-plan-result" hidden></div>
+      </section>
+
+      <section class="screen" id="screen-evidence" data-screen="evidence">
+        <div class="page-heading compact"><div><p class="eyebrow">FIXED 30-SCENARIO BENCHMARK</p><h1>Judge the system by evidence.</h1><p>These are reproducible engineering metrics, not claims of nationwide learning gains.</p></div><button class="button ghost" id="refresh-metrics">Refresh results</button></div>
+        <div class="metric-grid" id="metric-grid"></div>
+        <div class="evidence-layout">
+          <article class="panel"><div class="panel-heading"><div><p class="eyebrow">STRUCTURAL BASELINE</p><h2>More than a chatbot wrapper</h2></div></div><div id="baseline-table"></div><p class="caption">Capability comparison on fixed synthetic scenarios. Manual planning-time and learning-outcome claims require a teacher pilot.</p></article>
+          <article class="panel"><div class="panel-heading"><div><p class="eyebrow">WHAT WE DO NOT CLAIM</p><h2>Boundaries build trust</h2></div></div><ul class="boundary-list"><li>No autonomous student decisions</li><li>No photos, audio, caste, religion, or Aadhaar data</li><li>No claim of causal learning gains from synthetic tests</li><li>Possible gaps remain visible as uncertain until checked</li><li>Offline templates keep the class usable if AI is unavailable</li></ul></article>
+        </div>
+      </section>
+
+      <section class="print-pack" id="print-pack" aria-hidden="true"></section>
+    </main>
+  </div>
+
+  <dialog id="activity-dialog" class="activity-dialog">
+    <form method="dialog" class="dialog-shell" id="activity-form">
+      <div class="dialog-head"><div><p class="eyebrow">TEACHER REVIEW</p><h2 id="dialog-title">Review activity</h2></div><button class="icon-button" type="button" id="close-activity" aria-label="Close">×</button></div>
+      <div class="dialog-body">
+        <div class="activity-badges" id="dialog-badges"></div>
+        <label>Title<input name="title" required></label>
+        <label>Objective<input name="objective" required></label>
+        <label>Student instructions <span>one step per line</span><textarea name="student_instructions" rows="5" required></textarea></label>
+        <div class="form-grid"><label>Expected response<textarea name="expected_response" rows="3" required></textarea></label><label>Quick check<textarea name="quick_check" rows="3" required></textarea></label></div>
+        <div class="source-box" id="dialog-source"></div>
+      </div>
+      <div class="dialog-actions"><button type="button" class="button danger" id="reject-activity">Reject</button><div><button type="button" class="button ghost" id="regenerate-activity">Regenerate grounded version</button><button type="submit" class="button primary">Save my edit</button></div></div>
+    </form>
+  </dialog>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

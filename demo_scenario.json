@@ -1,0 +1,4871 @@
+{
+  "scenario_name": "Saarthi-MG Demo — Grade 1-3 Multigrade Classroom",
+  "teacher_name": "Sunita Devi",
+  "class_duration_minutes": 45,
+  "today": "2026-09-11",
+  "todays_objective": "N6",
+  "available_materials": [
+    "chalk",
+    "blackboard",
+    "paper",
+    "pencils",
+    "number cards (1-100)",
+    "bottle caps",
+    "sticks (bundles of 10)",
+    "letter cards",
+    "picture cards",
+    "storybooks (5 copies)"
+  ],
+  "supported_languages": [
+    "Hindi",
+    "Tamil"
+  ],
+  "days_history": [
+    {
+      "date": "2026-09-04",
+      "concepts_taught": [
+        "N1",
+        "R1"
+      ]
+    },
+    {
+      "date": "2026-09-05",
+      "concepts_taught": [
+        "N2",
+        "R1"
+      ]
+    },
+    {
+      "date": "2026-09-08",
+      "concepts_taught": [
+        "N3",
+        "R2"
+      ]
+    },
+    {
+      "date": "2026-09-09",
+      "concepts_taught": [
+        "N4",
+        "R3"
+      ]
+    },
+    {
+      "date": "2026-09-10",
+      "concepts_taught": [
+        "N4",
+        "R3"
+      ]
+    }
+  ],
+  "students": [
+    {
+      "id": "STU001",
+      "name": "Aarav",
+      "grade": 1,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.3,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU002",
+      "name": "Vivaan",
+      "grade": 1,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.3,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU003",
+      "name": "Diya",
+      "grade": 1,
+      "home_language": "Tamil",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.3,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU004",
+      "name": "Prisha",
+      "grade": 1,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.3,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU005",
+      "name": "Ayaan",
+      "grade": 1,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.3,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU006",
+      "name": "Krishna",
+      "grade": 1,
+      "home_language": "Tamil",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.3,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU007",
+      "name": "Zara",
+      "grade": 1,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.3,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU008",
+      "name": "Dhruv",
+      "grade": 1,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.3,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU009",
+      "name": "Tara",
+      "grade": 1,
+      "home_language": "Tamil",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": false,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": null,
+          "missed": true
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": true
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.3,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [
+        "N1",
+        "R1"
+      ],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU010",
+      "name": "Yash",
+      "grade": 1,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.3,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU011",
+      "name": "Samar",
+      "grade": 1,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.3,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU012",
+      "name": "Dev",
+      "grade": 1,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.3,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU013",
+      "name": "Myra",
+      "grade": 1,
+      "home_language": "Tamil",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.3,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU014",
+      "name": "Pooja",
+      "grade": 1,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": false,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.35,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.2,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": true
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.3,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": true
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [
+        "N3",
+        "R2"
+      ],
+      "teacher_notes": "Pooja is struggling with basic counting and letter recognition. Needs intensive support.",
+      "current_group": null
+    },
+    {
+      "id": "STU015",
+      "name": "Arjun",
+      "grade": 2,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.85,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.6,
+          "state": "Developing",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.75,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.15,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU016",
+      "name": "Riya",
+      "grade": 2,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.85,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.6,
+          "state": "Developing",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.75,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.15,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU017",
+      "name": "Ananya",
+      "grade": 2,
+      "home_language": "Tamil",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.85,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.6,
+          "state": "Developing",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.75,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.15,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU018",
+      "name": "Rayaan",
+      "grade": 2,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.85,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.6,
+          "state": "Developing",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.75,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.15,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU019",
+      "name": "Sanya",
+      "grade": 2,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.85,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.6,
+          "state": "Developing",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.75,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.15,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU020",
+      "name": "Rajkumar",
+      "grade": 2,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": false,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.8,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.75,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.55,
+          "state": "Developing",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-09",
+          "missed": true
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.85,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.6,
+          "state": "Developing",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.3,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": true
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [
+        "N4",
+        "R3"
+      ],
+      "teacher_notes": "Rajkumar was absent 2 days. Missed two-digit addition practice. Needs recovery before subtraction.",
+      "current_group": null
+    },
+    {
+      "id": "STU021",
+      "name": "Aadhya",
+      "grade": 2,
+      "home_language": "Tamil",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.85,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.6,
+          "state": "Developing",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.75,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.15,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU022",
+      "name": "Kabir",
+      "grade": 2,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.85,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.6,
+          "state": "Developing",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.75,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.15,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU023",
+      "name": "Isha",
+      "grade": 2,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.85,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.6,
+          "state": "Developing",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.75,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.15,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU024",
+      "name": "Rohan",
+      "grade": 2,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.85,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.6,
+          "state": "Developing",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.75,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.15,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU025",
+      "name": "Neha",
+      "grade": 2,
+      "home_language": "Tamil",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.85,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.6,
+          "state": "Developing",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.75,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.15,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU026",
+      "name": "Kavya",
+      "grade": 2,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.85,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.6,
+          "state": "Developing",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.75,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.15,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.0,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU027",
+      "name": "Vihaan",
+      "grade": 3,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 1.0,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.85,
+          "state": "Mastered",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.8,
+          "state": "Mastered",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.75,
+          "state": "Mastered",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.72,
+          "state": "Mastered",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 1.0,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.85,
+          "state": "Mastered",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.8,
+          "state": "Mastered",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "Vihaan has mastered all current competencies. Ready for extension/challenge work.",
+      "current_group": null
+    },
+    {
+      "id": "STU028",
+      "name": "Sai",
+      "grade": 3,
+      "home_language": "Tamil",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.8,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.5,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.25,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU029",
+      "name": "Navya",
+      "grade": 3,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.8,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.5,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.25,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU030",
+      "name": "Rahul",
+      "grade": 3,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.8,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.5,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.25,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU031",
+      "name": "Rishi",
+      "grade": 3,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.8,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.5,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.25,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU032",
+      "name": "Vedant",
+      "grade": 3,
+      "home_language": "Tamil",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.8,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.5,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.25,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU033",
+      "name": "Aryan",
+      "grade": 3,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": false,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": false,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": null,
+          "missed": true
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.8,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": true
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": true
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-10",
+          "missed": true
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.5,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.25,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [
+        "N2",
+        "N4",
+        "R1",
+        "R3"
+      ],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU034",
+      "name": "Simran",
+      "grade": 3,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.8,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.5,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.25,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    },
+    {
+      "id": "STU035",
+      "name": "Ishaan",
+      "grade": 3,
+      "home_language": "Hindi",
+      "attendance_history": [
+        {
+          "date": "2026-09-04",
+          "present": true,
+          "concepts_taught": [
+            "N1",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-05",
+          "present": true,
+          "concepts_taught": [
+            "N2",
+            "R1"
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "present": true,
+          "concepts_taught": [
+            "N3",
+            "R2"
+          ]
+        },
+        {
+          "date": "2026-09-09",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "present": true,
+          "concepts_taught": [
+            "N4",
+            "R3"
+          ]
+        }
+      ],
+      "competencies": {
+        "N1": {
+          "competency_id": "N1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-04",
+          "missed": false
+        },
+        "N2": {
+          "competency_id": "N2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "N3": {
+          "competency_id": "N3",
+          "score": 0.8,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "N4": {
+          "competency_id": "N4",
+          "score": 0.65,
+          "state": "Developing",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "N5": {
+          "competency_id": "N5",
+          "score": 0.45,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N6": {
+          "competency_id": "N6",
+          "score": 0.4,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "N7": {
+          "competency_id": "N7",
+          "score": 0.1,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R1": {
+          "competency_id": "R1",
+          "score": 0.95,
+          "state": "Mastered",
+          "last_assessed": "2026-09-05",
+          "missed": false
+        },
+        "R2": {
+          "competency_id": "R2",
+          "score": 0.9,
+          "state": "Mastered",
+          "last_assessed": "2026-09-08",
+          "missed": false
+        },
+        "R3": {
+          "competency_id": "R3",
+          "score": 0.7,
+          "state": "Mastered",
+          "last_assessed": "2026-09-10",
+          "missed": false
+        },
+        "R4": {
+          "competency_id": "R4",
+          "score": 0.5,
+          "state": "Developing",
+          "last_assessed": null,
+          "missed": false
+        },
+        "R5": {
+          "competency_id": "R5",
+          "score": 0.25,
+          "state": "Not yet learned",
+          "last_assessed": null,
+          "missed": false
+        }
+      },
+      "missed_concepts": [],
+      "teacher_notes": "",
+      "current_group": null
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-09-12T15:16:40.372830+00:00",
+  "scenario_count": 30,
+  "scope_note": "Deterministic synthetic engineering benchmark; not a teacher study or learning-outcome claim.",
+  "summary": {
+    "grouping": {
+      "student_assignment_rate": 100.0,
+      "constraint_violations": 0,
+      "independent_rule_rubric_agreement": 100.0,
+      "prerequisite_gap_accuracy": 100.0
+    },
+    "scheduling": {
+      "continuous_work_rate": 100.0,
+      "teacher_conflicts": 0,
+      "priority_group_teacher_access": 100.0,
+      "class_time_utilization": 100.0
+    },
+    "activities": {
+      "schema_success_rate": 100.0,
+      "competency_preservation": 100.0,
+      "level_appropriateness": 100.0,
+      "material_compliance": 100.0,
+      "curriculum_grounding_rate": 100.0,
+      "unsafe_or_invalid_rate": 0.0
+    },
+    "workflow": {
+      "median_system_plan_runtime_ms": 0.52,
+      "teacher_edits_in_automated_benchmark": 0,
+      "plan_acceptance_rate": 100.0,
+      "learning_checks_enabled": 300,
+      "manual_planning_time": "Not yet measured; requires teacher usability study"
+    }
+  },
+  "baseline_comparison": [
+    {
+      "name": "Manual blank template",
+      "groups_continuously_occupied": false,
+      "prerequisite_aware": false,
+      "curriculum_sources": false,
+      "validated_constraint_rate": null
+    },
+    {
+      "name": "Generic one-shot prompt",
+      "groups_continuously_occupied": false,
+      "prerequisite_aware": false,
+      "curriculum_sources": false,
+      "validated_constraint_rate": null
+    },
+    {
+      "name": "Saarthi-MG orchestrator",
+      "groups_continuously_occupied": true,
+      "prerequisite_aware": true,
+      "curriculum_sources": true,
+      "validated_constraint_rate": 100.0
+    }
+  ],
+  "baseline_note": "Structural capability comparison, not a measured human-performance comparison. Unmeasured baselines are shown as not tested instead of assigning invented scores."
+}

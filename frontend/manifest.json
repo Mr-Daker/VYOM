@@ -1,0 +1,9 @@
+{
+  "name": "Saarthi-MG Classroom Orchestrator",
+  "short_name": "Saarthi-MG",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f3ed",
+  "theme_color": "#173f3a",
+  "description": "Teacher-first planning for multigrade foundational classrooms"
+}
