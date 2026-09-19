@@ -147,6 +147,9 @@ class ClassSession(Base):
     groups_teacher_modified = Column(Boolean, nullable=False, default=False)
     created_at = Column(DateTime(timezone=True), default=utc_now)
     updated_at = Column(DateTime(timezone=True), default=utc_now, onupdate=utc_now)
+    
+    priority_generated_at = Column(DateTime(timezone=True), nullable=True)
+    priority_stale = Column(Boolean, nullable=False, default=False)
 
     __table_args__ = (
         CheckConstraint('duration_minutes > 0', name='check_session_duration'),

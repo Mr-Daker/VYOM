@@ -265,20 +265,30 @@ def test_archive_excluded_from_retrieval(client, db_session):
     for r in res.json()["results"]:
         assert r["source"]["document_id"] != doc["id"]
 
-def test_hybrid_weight_renormalization_and_lexical(client, db_session):
-    # Without semantic search, weights renormalize
-    comp = Competency(code="TEST-RENORM", name="Renorm", subject="math", grade=2)
-    db_session.add(comp)
-    db_session.commit()
+def test_hybrid_weight_renormalization_and_lexical():
+    from app.services.curriculum_retrieval import compute_hybrid_score
+    from app.core.curriculum_config import COMPETENCY_MATCH_WEIGHT, LEXICAL_WEIGHT, SEMANTIC_WEIGHT
     
-    res = client.post("/api/v1/curriculum/retrieve", json={
-        "competency_id": str(comp.id),
-        "query_text": "test"
-    })
-    # Since semantic is fake, it's used
-    assert res.json()["semantic_search_used"] == False
-
-
+    comp = 0.8
+    lex = 0.5
+    sem = 0.9
+    
+    expected_full = round(
+        (comp * COMPETENCY_MATCH_WEIGHT) + 
+        (lex * LEXICAL_WEIGHT) + 
+        (sem * SEMANTIC_WEIGHT), 
+        6
+    )
+    assert compute_hybrid_score(comp, lex, sem) == expected_full
+    
+    total_avail = COMPETENCY_MATCH_WEIGHT + LEXICAL_WEIGHT
+    expected_renorm = round(
+        (comp * (COMPETENCY_MATCH_WEIGHT / total_avail)) + 
+        (lex * (LEXICAL_WEIGHT / total_avail)), 
+        6
+    )
+    
+    assert compute_hybrid_score(comp, lex, None) == expected_renorm
 
 def test_embedding_retry(client, db_session):
     app.dependency_overrides[get_embedding_provider] = lambda: FailingEmbeddingProvider()

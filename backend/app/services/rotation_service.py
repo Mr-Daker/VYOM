@@ -64,6 +64,12 @@ class RotationSchedulerService:
         if not session:
             raise AppException("NOT_FOUND", "Session not found", 404)
             
+        if not session.priority_generated_at:
+            raise AppException("PRIORITY_REQUIRED", "Priorities must be generated first", 400)
+            
+        if session.priority_stale:
+            raise AppException("PRIORITY_STALE", "Priorities are stale", 409)
+            
         if self.repo.get_plan_by_session(session_id):
             raise AppException("SCHEDULE_ALREADY_EXISTS", "A rotation schedule already exists", 409)
 

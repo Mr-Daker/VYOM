@@ -420,6 +420,8 @@ def test_teacher_moved_learner_integration(client, db_session):
     assert mem_sr.original_group_type == GroupType.RECOVERY.value
     
     
+    db_session.refresh(sess)
+    assert sess.priority_stale is True
     new_res = client.post(f"/api/v1/sessions/{sess.id}/priorities/generate", json={"replace_existing": True}).json()["priorities"]
     ext_new_p = next(p for p in new_res if p["group_id"] == str(g_ext.id))
     
@@ -615,7 +617,6 @@ def test_reorder_reason_clearing(client, db_session):
     assert r2.json()["priorities"][0]["teacher_override_reason"] is None
 
 import pytest
-@pytest.mark.skip(reason="priority_stale removed")
 def test_priority_stale_after_student_move(client, db_session):
     c = setup_base(db_session)
     sess, c_t = setup_session_with_groups(db_session, c)
@@ -648,6 +649,8 @@ def test_priority_stale_after_student_move(client, db_session):
     
     
     get_res = client.get(f"/api/v1/sessions/{sess.id}/priorities")
+    db_session.refresh(sess)
+    assert sess.priority_stale is True
     assert get_res.json()["stale"] is True
     
     r_reorder = client.post(f"/api/v1/sessions/{sess.id}/priorities/reorder", json={"ordered_group_ids": [str(g1.id), str(g2.id)]})
@@ -655,7 +658,6 @@ def test_priority_stale_after_student_move(client, db_session):
     assert r_reorder.json()["error"]["code"] == "PRIORITY_STALE"
 
 import pytest
-@pytest.mark.skip(reason="priority_stale removed")
 def test_priority_stale_after_group_patch(client, db_session):
     c = setup_base(db_session)
     sess, c_t = setup_session_with_groups(db_session, c)
@@ -673,6 +675,8 @@ def test_priority_stale_after_group_patch(client, db_session):
     assert patch_res.status_code == 200
     
     get_res = client.get(f"/api/v1/sessions/{sess.id}/priorities")
+    db_session.refresh(sess)
+    assert sess.priority_stale is True
     assert get_res.json()["stale"] is True
 
 def test_teacher_reorder_protects_regeneration(client, db_session):
@@ -698,7 +702,6 @@ def test_teacher_reorder_protects_regeneration(client, db_session):
     assert r2.json()["priorities"][0]["teacher_override_reason"] is None
 
 import pytest
-@pytest.mark.skip(reason="priority_generated_at removed")
 def test_group_regeneration_clears_priorities(client, db_session):
     c = setup_base(db_session)
     sess, c_t = setup_session_with_groups(db_session, c, status=SessionStatus.ATTENDANCE_RECORDED)
@@ -721,6 +724,8 @@ def test_group_regeneration_clears_priorities(client, db_session):
     res_gen2 = client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={"replace_existing": True, "force_replace_teacher_edits": True})
     assert res_gen2.status_code == 200
     
+    db_session.refresh(sess)
+    assert sess.priority_generated_at is None
     assert db_session.query(GroupPriority).count() == 0
     assert sess.priority_stale is False
     assert sess.status == SessionStatus.GROUPED
@@ -756,6 +761,8 @@ def test_initial_rollback_after_one_new_row_flushed(client, db_session):
         
     assert res.status_code == 500
     assert successful_priority_flushes == 1
+    db_session.refresh(sess)
+    assert sess.priority_generated_at is None
     assert db_session.query(GroupPriority).count() == 0
     assert sess.status == SessionStatus.GROUPED
 
@@ -781,6 +788,9 @@ def test_replacement_rollback_restores_old_state(client, db_session):
     })
     
     
+    db_session.refresh(sess)
+    old_gen_at = sess.priority_generated_at
+    old_stale = sess.priority_stale
     old_rows = (
         db_session.query(GroupPriority)
         .filter(GroupPriority.session_id == sess.id)
@@ -848,6 +858,9 @@ def test_replacement_rollback_restores_old_state(client, db_session):
         assert new_row.student_count_at_generation == old_snap["student_count_at_generation"]
         
 
+    db_session.refresh(sess)
+    assert sess.priority_generated_at == old_gen_at
+    assert sess.priority_stale == old_stale
 def test_db_uniqueness_and_bounds(db_session):
     c = setup_base(db_session)
     sess, c_t = setup_session_with_groups(db_session, c)

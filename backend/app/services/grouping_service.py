@@ -267,8 +267,8 @@ class GroupingService(BaseService):
         try:
             from app.repositories.priority_repository import GroupPriorityRepository
             GroupPriorityRepository(self.db).delete_for_session(session_id)
-            pass
-            pass
+            session.priority_generated_at = None
+            session.priority_stale = False
             self.mem_repo.delete_for_session(session_id)
             self.group_repo.delete_for_session(session_id)
             
@@ -476,6 +476,9 @@ class GroupingService(BaseService):
                 self.db.flush()
                 self.normalize_group_sort_order(session_id)
                 
+            if session.priority_generated_at is not None:
+                session.priority_stale = True
+                
             self.db.commit()
         except Exception as e:
             self.db.rollback()
@@ -499,6 +502,9 @@ class GroupingService(BaseService):
                 target_group.name = req.name
             if req.reason is not None:
                 target_group.reason = req.reason
+                
+            if session.priority_generated_at is not None:
+                session.priority_stale = True
             target_group.teacher_modified = True
             session.groups_teacher_modified = True
             self.db.commit()
