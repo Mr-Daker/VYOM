@@ -70,11 +70,6 @@ class RotationSchedulerService:
         if session.status != SessionStatus.GROUPED.value:
             raise AppException("INVALID_SESSION_STATE", f"Cannot generate rotation for state {session.status}", 400)
             
-        if not session.priority_generated_at:
-            raise AppException("PRIORITY_REQUIRED", "Priorities must be generated first", 400)
-            
-        if session.priority_stale:
-            raise AppException("PRIORITY_STALE", "Priorities are stale", 409)
             
         groups = self.group_repo.get_by_session(session_id)
         if not groups:

@@ -1,4 +1,7 @@
 import pytest
+pytestmark = pytest.mark.postgres
+
+import pytest
 from uuid import uuid4
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import text

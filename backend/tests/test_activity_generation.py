@@ -21,7 +21,7 @@ def fake_llm():
     provider = FakeLLMProvider()
     app.dependency_overrides[get_llm_provider] = lambda: provider
     yield provider
-    app.dependency_overrides.clear()
+    app.dependency_overrides.pop(get_llm_provider, None)
 
 def setup_context(db_session: Session, num_groups: int = 3):
     from app.models.enums import UserRole, SessionStatus, RotationSlotType

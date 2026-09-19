@@ -1,4 +1,6 @@
+import uuid
 import pytest
+pytestmark = pytest.mark.postgres
 from app.db.session import SessionLocal
 from app.models.all_models import Student, ClassSession, Competency, AttendanceRecord, StudentMastery, MasteryEvidence
 from app.db.seed import run_seed

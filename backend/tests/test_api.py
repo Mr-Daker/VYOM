@@ -140,7 +140,7 @@ def test_mastery_upsert_last_updated(client, db_session):
     db_session.commit()
 
     res1 = client.post(f"/api/v1/students/{s.id}/mastery", json={"competency_id": str(comp.id), "score": 0.5, "state": "developing"})
-    m1 = db_session.query(StudentMastery).filter_by(id=res1.json()["id"]).first()
+    m1 = db_session.query(StudentMastery).filter_by(id=uuid.UUID(res1.json()["id"])).first()
     lu1 = m1.last_updated
     
     # Needs a tiny delay for timestamp diff

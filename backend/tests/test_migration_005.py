@@ -1,4 +1,5 @@
 import pytest
+pytestmark = pytest.mark.postgres
 import uuid
 from sqlalchemy import text
 from app.core.config import settings

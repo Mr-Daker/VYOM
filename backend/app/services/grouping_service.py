@@ -267,8 +267,8 @@ class GroupingService(BaseService):
         try:
             from app.repositories.priority_repository import GroupPriorityRepository
             GroupPriorityRepository(self.db).delete_for_session(session_id)
-            session.priority_generated_at = None
-            session.priority_stale = False
+            pass
+            pass
             self.mem_repo.delete_for_session(session_id)
             self.group_repo.delete_for_session(session_id)
             
@@ -442,7 +442,7 @@ class GroupingService(BaseService):
         if not student or student.classroom_id != session.classroom_id or not student.active:
             raise AppException("VALIDATION_ERROR", "Invalid, inactive, or mismatched student", 400)
             
-        att = self.att_repo.get_by_session_and_student(session_id, req.student_id)
+        att = self.att_repo.get_by_student_and_session(req.student_id, session_id)
         if not att: raise AppException("ATTENDANCE_INCOMPLETE", "Missing attendance for student", 409)
         if att.status == AttendanceStatus.ABSENT:
             raise AppException("VALIDATION_ERROR", "Cannot move an absent student", 400)
@@ -467,8 +467,6 @@ class GroupingService(BaseService):
             target_group.teacher_modified = True
             source_group.teacher_modified = True
             session.groups_teacher_modified = True
-            if session.priority_generated_at is not None:
-                session.priority_stale = True
             
             self.db.flush()
             
@@ -503,8 +501,6 @@ class GroupingService(BaseService):
                 target_group.reason = req.reason
             target_group.teacher_modified = True
             session.groups_teacher_modified = True
-            if session.priority_generated_at is not None:
-                session.priority_stale = True
             self.db.commit()
         except Exception as e:
             self.db.rollback()

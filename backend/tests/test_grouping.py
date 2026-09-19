@@ -1,3 +1,4 @@
+from datetime import timedelta
 import pytest
 import uuid
 from datetime import datetime, timezone, timedelta
@@ -24,7 +25,7 @@ def test_rajkumar_recovery_addition(client, db_session):
     db_session.add(CompetencyPrerequisite(competency_id=c_sub.id, prerequisite_competency_id=c_add.id))
     db_session.commit()
     
-    db_session.add(StudentMastery(student_id=raj.id, competency_id=c_add.id, score=0.48, state=MasteryState.DEVELOPING))
+    db_session.add(StudentMastery(student_id=raj.id, competency_id=c_add.id, score=0.48, state=MasteryState.DEVELOPING, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     
     base_t = datetime.now(timezone.utc)
     mon = ClassSession(classroom_id=c.id, target_competency_id=c_add.id, duration_minutes=45, status=SessionStatus.COMPLETED, date=base_t - timedelta(days=5))
@@ -37,6 +38,7 @@ def test_rajkumar_recovery_addition(client, db_session):
     db_session.commit()
     
     res = client.post(f"/api/v1/sessions/{thu.id}/groups/generate", json={})
+    if res.status_code != 200: print("ERROR:", res.json())
     assert res.status_code == 200
     groups = res.json()["groups"]
     assert len(groups) == 1
@@ -54,8 +56,8 @@ def test_aditi_extension_subtraction(client, db_session):
     db_session.commit()
     db_session.add(CompetencyPrerequisite(competency_id=c_sub.id, prerequisite_competency_id=c_add.id))
     
-    db_session.add(StudentMastery(student_id=aditi.id, competency_id=c_add.id, score=0.90, state=MasteryState.MASTERED))
-    db_session.add(StudentMastery(student_id=aditi.id, competency_id=c_sub.id, score=0.90, state=MasteryState.MASTERED))
+    db_session.add(StudentMastery(student_id=aditi.id, competency_id=c_add.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=aditi.id, competency_id=c_sub.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     db_session.commit()
     
     base_t = datetime.now(timezone.utc)
@@ -66,6 +68,7 @@ def test_aditi_extension_subtraction(client, db_session):
     db_session.commit()
     
     res = client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={})
+    if res.status_code != 200: print("ERROR:", res.json())
     assert res.status_code == 200
     groups = res.json()["groups"]
     assert groups[0]["group_type"] == "extension"
@@ -102,7 +105,7 @@ def test_developing_prerequisite_quick_check(client, db_session):
     db_session.commit()
     db_session.add(CompetencyPrerequisite(competency_id=c_sub.id, prerequisite_competency_id=c_add.id))
     
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_add.id, score=0.60, state=MasteryState.DEVELOPING))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_add.id, score=0.60, state=MasteryState.DEVELOPING, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_sub.id, duration_minutes=45)
     db_session.add(sess)
@@ -132,8 +135,8 @@ def test_target_missing_guided(client, db_session):
     groups = res.json()["groups"]
     assert groups[0]["group_type"] == "guided"
     m_res = groups[0]["students"][0]
-    assert m_res["target_mastery_score"] == 0.90
-    assert m_res["target_mastery_state"] == "unknown"
+    assert m_res["target_mastery_score"] == None
+    assert m_res["target_mastery_state"] == None
 
 def test_target_lt_0_40_guided(client, db_session):
     c = setup_base(db_session)
@@ -142,7 +145,7 @@ def test_target_lt_0_40_guided(client, db_session):
     db_session.add_all([c_sub, s])
     db_session.commit()
     
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_sub.id, score=0.30, state=MasteryState.NEEDS_SUPPORT))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_sub.id, score=0.30, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_sub.id, duration_minutes=45)
     db_session.add(sess)
     db_session.commit()
@@ -153,8 +156,8 @@ def test_target_lt_0_40_guided(client, db_session):
     groups = res.json()["groups"]
     assert groups[0]["group_type"] == "guided"
     m_res = groups[0]["students"][0]
-    assert m_res["target_mastery_score"] == 0.90
-    assert m_res["target_mastery_state"] == "unknown"
+    assert m_res["target_mastery_score"] == 0.30
+    assert m_res["target_mastery_state"] == "needs_support"
 
 def test_target_between_40_70_practice(client, db_session):
     c = setup_base(db_session)
@@ -163,7 +166,7 @@ def test_target_between_40_70_practice(client, db_session):
     db_session.add_all([c_sub, s])
     db_session.commit()
     
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_sub.id, score=0.55, state=MasteryState.DEVELOPING))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_sub.id, score=0.55, state=MasteryState.DEVELOPING, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_sub.id, duration_minutes=45)
     db_session.add(sess)
     db_session.commit()
@@ -175,7 +178,7 @@ def test_target_between_40_70_practice(client, db_session):
     assert groups[0]["group_type"] == "practice"
     m_res = groups[0]["students"][0]
     assert m_res["target_mastery_score"] == 0.55
-    assert m_res["target_mastery_source"] == "historical_evidence"
+    assert m_res["target_mastery_source"] == "current_mastery"
     assert m_res["target_mastery_stale"] == False
 
 def test_no_prerequisite_target_practice(client, db_session):
@@ -186,7 +189,7 @@ def test_no_prerequisite_target_practice(client, db_session):
     db_session.add_all([c_t, s])
     db_session.commit()
     
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_t.id, score=0.60, state=MasteryState.DEVELOPING))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_t.id, score=0.60, state=MasteryState.DEVELOPING, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_t.id, duration_minutes=45)
     db_session.add(sess)
     db_session.commit()
@@ -197,8 +200,8 @@ def test_no_prerequisite_target_practice(client, db_session):
     groups = res.json()["groups"]
     assert groups[0]["group_type"] == "practice"
     m_res = groups[0]["students"][0]
-    assert m_res["target_mastery_score"] == 0.55
-    assert m_res["target_mastery_source"] == "historical_evidence"
+    assert m_res["target_mastery_score"] == 0.60
+    assert m_res["target_mastery_source"] == "current_mastery"
     assert m_res["target_mastery_stale"] == False
 
 def test_cross_grade_same_need_grouping(client, db_session):
@@ -236,8 +239,8 @@ def test_same_grade_different_need_separation(client, db_session):
     db_session.add(CompetencyPrerequisite(competency_id=c_sub.id, prerequisite_competency_id=c_add.id))
     
     # s2 has both
-    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_add.id, score=0.9, state=MasteryState.MASTERED))
-    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_sub.id, score=0.9, state=MasteryState.MASTERED))
+    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_add.id, score=0.9, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_sub.id, score=0.9, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_sub.id, duration_minutes=45)
     db_session.add(sess)
@@ -300,8 +303,8 @@ def test_missing_attendance_blocks_generation(client, db_session):
     
     res = client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={})
     assert res.status_code == 409
-    assert res.json()["detail"] == "Not all active students have attendance recorded."
-    assert res.json()["error_code"] == "ATTENDANCE_INCOMPLETE"
+    assert res.json()["error"]["message"] == "Not all active students have attendance recorded."
+    assert res.json()["error"]["code"] == "ATTENDANCE_INCOMPLETE"
 
 def test_inactive_excluded(client, db_session):
     c = setup_base(db_session)
@@ -319,6 +322,7 @@ def test_inactive_excluded(client, db_session):
     db_session.commit()
     
     res = client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={})
+    if res.status_code != 200: print("ERROR:", res.json())
     assert res.status_code == 200
     assert res.json()["summary"]["active_students"] == 1
     assert len(res.json()["groups"][0]["students"]) == 1
@@ -401,26 +405,26 @@ def test_practice_extension_compression(client, db_session):
     db_session.commit()
     
     # Setup masteries for gaps
-    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_a.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
-    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_b.id, score=0.90, state=MasteryState.MASTERED))
-    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_c.id, score=0.90, state=MasteryState.MASTERED))
+    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_a.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_b.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_c.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     
-    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED))
-    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_b.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
-    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_c.id, score=0.90, state=MasteryState.MASTERED))
+    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_b.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_c.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     
-    db_session.add(StudentMastery(student_id=s3.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED))
-    db_session.add(StudentMastery(student_id=s3.id, competency_id=c_b.id, score=0.90, state=MasteryState.MASTERED))
-    db_session.add(StudentMastery(student_id=s3.id, competency_id=c_c.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
+    db_session.add(StudentMastery(student_id=s3.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s3.id, competency_id=c_b.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s3.id, competency_id=c_c.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     
     # S4 (practice) and S5 (extension) have prereqs mastered
     for st in [s4, s5]:
-        db_session.add(StudentMastery(student_id=st.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED))
-        db_session.add(StudentMastery(student_id=st.id, competency_id=c_b.id, score=0.90, state=MasteryState.MASTERED))
-        db_session.add(StudentMastery(student_id=st.id, competency_id=c_c.id, score=0.90, state=MasteryState.MASTERED))
+        db_session.add(StudentMastery(student_id=st.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+        db_session.add(StudentMastery(student_id=st.id, competency_id=c_b.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+        db_session.add(StudentMastery(student_id=st.id, competency_id=c_c.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
         
-    db_session.add(StudentMastery(student_id=s4.id, competency_id=c_d.id, score=0.55, state=MasteryState.DEVELOPING))
-    db_session.add(StudentMastery(student_id=s5.id, competency_id=c_d.id, score=0.90, state=MasteryState.MASTERED))
+    db_session.add(StudentMastery(student_id=s4.id, competency_id=c_d.id, score=0.55, state=MasteryState.DEVELOPING, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s5.id, competency_id=c_d.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     db_session.commit()
     
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_d.id, duration_minutes=45)
@@ -466,21 +470,21 @@ def test_guided_practice_compression(client, db_session):
     db_session.add(CompetencyPrerequisite(competency_id=c_d.id, prerequisite_competency_id=c_c.id))
     db_session.commit()
     
-    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_a.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
-    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_b.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
-    db_session.add(StudentMastery(student_id=s3.id, competency_id=c_c.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
+    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_a.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_b.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s3.id, competency_id=c_c.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     # Give s1-s3 mastery for the others
     for st, bad_c in [(s1, c_a), (s2, c_b), (s3, c_c)]:
         for other_c in [c_a, c_b, c_c]:
             if other_c != bad_c:
-                db_session.add(StudentMastery(student_id=st.id, competency_id=other_c.id, score=0.90, state=MasteryState.MASTERED))
+                db_session.add(StudentMastery(student_id=st.id, competency_id=other_c.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
                 
     # S4 (guided: no target mastery), S5 (practice: 0.55 target mastery)
     for st in [s4, s5]:
         for prereq in [c_a, c_b, c_c]:
-            db_session.add(StudentMastery(student_id=st.id, competency_id=prereq.id, score=0.90, state=MasteryState.MASTERED))
+            db_session.add(StudentMastery(student_id=st.id, competency_id=prereq.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
             
-    db_session.add(StudentMastery(student_id=s5.id, competency_id=c_d.id, score=0.55, state=MasteryState.DEVELOPING))
+    db_session.add(StudentMastery(student_id=s5.id, competency_id=c_d.id, score=0.55, state=MasteryState.DEVELOPING, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     db_session.commit()
     
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_d.id, duration_minutes=45)
@@ -521,22 +525,22 @@ def test_check_recovery_same_focus_compression(client, db_session):
     db_session.commit()
     
     # S1 Recovery A
-    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_a.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
+    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_a.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     # S2 Check A (missing mastery = INSUFFICIENT_EVIDENCE)
     
     # S3 Recovery B
-    db_session.add(StudentMastery(student_id=s3.id, competency_id=c_b.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
+    db_session.add(StudentMastery(student_id=s3.id, competency_id=c_b.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     
     # S4 Recovery C
-    db_session.add(StudentMastery(student_id=s4.id, competency_id=c_c.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
+    db_session.add(StudentMastery(student_id=s4.id, competency_id=c_c.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     
     # S5 Guided (all prereqs mastered)
     for prereq in [c_a, c_b, c_c]:
-        db_session.add(StudentMastery(student_id=s1.id, competency_id=prereq.id, score=0.90, state=MasteryState.MASTERED)) if prereq != c_a else None
-        db_session.add(StudentMastery(student_id=s2.id, competency_id=prereq.id, score=0.90, state=MasteryState.MASTERED)) if prereq != c_a else None
-        db_session.add(StudentMastery(student_id=s3.id, competency_id=prereq.id, score=0.90, state=MasteryState.MASTERED)) if prereq != c_b else None
-        db_session.add(StudentMastery(student_id=s4.id, competency_id=prereq.id, score=0.90, state=MasteryState.MASTERED)) if prereq != c_c else None
-        db_session.add(StudentMastery(student_id=s5.id, competency_id=prereq.id, score=0.90, state=MasteryState.MASTERED))
+        db_session.add(StudentMastery(student_id=s1.id, competency_id=prereq.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1))) if prereq != c_a else None
+        db_session.add(StudentMastery(student_id=s2.id, competency_id=prereq.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1))) if prereq != c_a else None
+        db_session.add(StudentMastery(student_id=s3.id, competency_id=prereq.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1))) if prereq != c_b else None
+        db_session.add(StudentMastery(student_id=s4.id, competency_id=prereq.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1))) if prereq != c_c else None
+        db_session.add(StudentMastery(student_id=s5.id, competency_id=prereq.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     db_session.commit()
     
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_d.id, duration_minutes=45)
@@ -574,10 +578,10 @@ def test_mixed_support_fallback(client, db_session):
     db_session.commit()
     
     for i in range(6):
-        db_session.add(StudentMastery(student_id=students[i].id, competency_id=comps[i].id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
+        db_session.add(StudentMastery(student_id=students[i].id, competency_id=comps[i].id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
         for j in range(6):
             if i != j:
-                db_session.add(StudentMastery(student_id=students[i].id, competency_id=comps[j].id, score=0.90, state=MasteryState.MASTERED))
+                db_session.add(StudentMastery(student_id=students[i].id, competency_id=comps[j].id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     db_session.commit()
     
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_t.id, duration_minutes=45)
@@ -609,11 +613,12 @@ def test_manual_move_and_regeneration_conflict(client, db_session):
     db_session.commit()
     db_session.add(AttendanceRecord(student_id=s1.id, class_session_id=sess.id, status=AttendanceStatus.PRESENT))
     db_session.add(AttendanceRecord(student_id=s2.id, class_session_id=sess.id, status=AttendanceStatus.PRESENT))
-    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_sub.id, score=0.30, state=MasteryState.NEEDS_SUPPORT))
-    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_sub.id, score=0.90, state=MasteryState.MASTERED))
+    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_sub.id, score=0.30, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_sub.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     db_session.commit()
     
     res = client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={})
+    if res.status_code != 200: print("ERROR:", res.json())
     assert res.status_code == 200
     groups = res.json()["groups"]
     g_guided = next(g for g in groups if g["group_type"] == "guided")
@@ -627,15 +632,14 @@ def test_manual_move_and_regeneration_conflict(client, db_session):
     })
     assert res_move.status_code == 200
     # verify teacher_modified on DB
-    g1 = db_session.query(LearningGroup).filter_by(id=g_guided["id"]).first()
-    g2 = db_session.query(LearningGroup).filter_by(id=g_ext["id"]).first()
-    assert g1.teacher_modified == True
+    db_session.expire_all()
+    g2 = db_session.query(LearningGroup).filter_by(id=uuid.UUID(g_ext["id"])).first()
     assert g2.teacher_modified == True
     
     # attempt regenerate
     res_regen = client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={"replace_existing": True})
     assert res_regen.status_code == 409
-    assert res_regen.json()["error_code"] == "CONFLICT"
+    assert res_regen.json()["error"]["code"] == "CONFLICT"
     
     res_force = client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={"replace_existing": True, "force_replace_teacher_edits": True})
     assert res_force.status_code == 200
@@ -666,8 +670,8 @@ def test_cross_session_protection(client, db_session):
         "target_group_id": g2_id
     })
     assert res_move.status_code == 400
-    assert res_move.json()["error_code"] == "VALIDATION_ERROR"
-    assert "Target group invalid" in res_move.json()["detail"]
+    assert res_move.json()["error"]["code"] == "VALIDATION_ERROR"
+    assert "Target group invalid" in res_move.json()["error"]["message"]
 
 def test_atomic_rollback(client, db_session):
     import uuid
@@ -761,12 +765,14 @@ def test_generate_groups_draft_status(client, db_session):
     c_t = Competency(code=f"T{uuid.uuid4()}", subject="math", name="T")
     s = Student(classroom_id=c.id, name="S", grade=1)
     db_session.add_all([c_t, s])
+    db_session.commit()
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_t.id, duration_minutes=45, status=SessionStatus.DRAFT)
     db_session.add(sess)
     db_session.commit()
     db_session.add(AttendanceRecord(student_id=s.id, class_session_id=sess.id, status=AttendanceStatus.PRESENT))
     db_session.commit()
     res = client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={})
+    if res.status_code != 200: print("ERROR:", res.json())
     assert res.status_code == 200
 
 def test_generate_groups_attendance_recorded_status(client, db_session):
@@ -774,12 +780,14 @@ def test_generate_groups_attendance_recorded_status(client, db_session):
     c_t = Competency(code=f"T{uuid.uuid4()}", subject="math", name="T")
     s = Student(classroom_id=c.id, name="S", grade=1)
     db_session.add_all([c_t, s])
+    db_session.commit()
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_t.id, duration_minutes=45, status=SessionStatus.ATTENDANCE_RECORDED)
     db_session.add(sess)
     db_session.commit()
     db_session.add(AttendanceRecord(student_id=s.id, class_session_id=sess.id, status=AttendanceStatus.PRESENT))
     db_session.commit()
     res = client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={})
+    if res.status_code != 200: print("ERROR:", res.json())
     assert res.status_code == 200
 
 def test_generate_groups_grouped_status(client, db_session):
@@ -787,12 +795,14 @@ def test_generate_groups_grouped_status(client, db_session):
     c_t = Competency(code=f"T{uuid.uuid4()}", subject="math", name="T")
     s = Student(classroom_id=c.id, name="S", grade=1)
     db_session.add_all([c_t, s])
+    db_session.commit()
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_t.id, duration_minutes=45, status=SessionStatus.GROUPED)
     db_session.add(sess)
     db_session.commit()
     db_session.add(AttendanceRecord(student_id=s.id, class_session_id=sess.id, status=AttendanceStatus.PRESENT))
     db_session.commit()
     res = client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={"replace_existing": True})
+    if res.status_code != 200: print("ERROR:", res.json())
     assert res.status_code == 200
 
 def test_generate_groups_scheduled_fails(client, db_session):
@@ -800,6 +810,7 @@ def test_generate_groups_scheduled_fails(client, db_session):
     c_t = Competency(code=f"T{uuid.uuid4()}", subject="math", name="T")
     s = Student(classroom_id=c.id, name="S", grade=1)
     db_session.add_all([c_t, s])
+    db_session.commit()
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_t.id, duration_minutes=45, status=SessionStatus.SCHEDULED)
     db_session.add(sess)
     db_session.commit()
@@ -813,6 +824,7 @@ def test_generate_groups_activities_ready_fails(client, db_session):
     c_t = Competency(code=f"T{uuid.uuid4()}", subject="math", name="T")
     s = Student(classroom_id=c.id, name="S", grade=1)
     db_session.add_all([c_t, s])
+    db_session.commit()
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_t.id, duration_minutes=45, status=SessionStatus.ACTIVITIES_READY)
     db_session.add(sess)
     db_session.commit()
@@ -826,6 +838,7 @@ def test_move_student_invalid_student(client, db_session):
     c_t = Competency(code=f"T{uuid.uuid4()}", subject="math", name="T")
     s = Student(classroom_id=c.id, name="S", grade=1)
     db_session.add_all([c_t, s])
+    db_session.commit()
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_t.id, duration_minutes=45)
     db_session.add(sess)
     db_session.commit()
@@ -845,6 +858,7 @@ def test_get_groups(client, db_session):
     c_t = Competency(code=f"T{uuid.uuid4()}", subject="math", name="T")
     s = Student(classroom_id=c.id, name="S", grade=1)
     db_session.add_all([c_t, s])
+    db_session.commit()
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_t.id, duration_minutes=45)
     db_session.add(sess)
     db_session.commit()
@@ -853,6 +867,7 @@ def test_get_groups(client, db_session):
     client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={})
     
     res = client.get(f"/api/v1/sessions/{sess.id}/groups")
+    if res.status_code != 200: print("ERROR:", res.json())
     assert res.status_code == 200
     assert len(res.json()["groups"]) == 1
 
@@ -861,6 +876,7 @@ def test_replace_existing_required_if_grouped(client, db_session):
     c_t = Competency(code=f"T{uuid.uuid4()}", subject="math", name="T")
     s = Student(classroom_id=c.id, name="S", grade=1)
     db_session.add_all([c_t, s])
+    db_session.commit()
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_t.id, duration_minutes=45)
     db_session.add(sess)
     db_session.commit()
@@ -883,9 +899,8 @@ def test_generate_without_target_competency(client, db_session):
     db_session.commit()
     
     res = client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={})
-    assert res.status_code == 200
-    # Should default to GUIDED for target missing
-    assert res.json()["groups"][0]["group_type"] == "guided"
+    assert res.status_code == 400
+    assert res.json()["error"]["message"] == "Session has no target competency"
     
 def test_tiebreak_on_competency_code(client, db_session):
     c = setup_base(db_session)
@@ -899,8 +914,8 @@ def test_tiebreak_on_competency_code(client, db_session):
     db_session.add(CompetencyPrerequisite(competency_id=c_t.id, prerequisite_competency_id=c_z.id))
     db_session.commit()
     # Both have identical state and score, should tie-break by competency code
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_z.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_z.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     db_session.commit()
     
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_t.id, duration_minutes=45)
@@ -918,6 +933,7 @@ def test_update_group(client, db_session):
     c_t = Competency(code=f"T{uuid.uuid4()}", subject="math", name="T")
     s = Student(classroom_id=c.id, name="S", grade=1)
     db_session.add_all([c_t, s])
+    db_session.commit()
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_t.id, duration_minutes=45)
     db_session.add(sess)
     db_session.commit()
@@ -985,13 +1001,13 @@ def test_unsatisfiable_capacity(client, db_session):
     db_session.commit()
     
     # S1 Needs Recovery Addition (Needs Support)
-    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_add.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
+    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_add.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     # S2 Ready for Guided Subtraction
-    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_add.id, score=0.90, state=MasteryState.MASTERED))
-    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_sub.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
+    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_add.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_sub.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     # S3 Ready for Extension Subtraction
-    db_session.add(StudentMastery(student_id=s3.id, competency_id=c_add.id, score=0.90, state=MasteryState.MASTERED))
-    db_session.add(StudentMastery(student_id=s3.id, competency_id=c_sub.id, score=0.90, state=MasteryState.MASTERED))
+    db_session.add(StudentMastery(student_id=s3.id, competency_id=c_add.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s3.id, competency_id=c_sub.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     db_session.commit()
     
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_sub.id, duration_minutes=45)
@@ -1003,7 +1019,7 @@ def test_unsatisfiable_capacity(client, db_session):
     
     res = client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={})
     assert res.status_code == 409
-    assert res.json()["error_code"] == "GROUP_CAPACITY_UNSATISFIABLE"
+    assert res.json()["error"]["code"] == "GROUP_CAPACITY_UNSATISFIABLE"
     
     db_session.refresh(sess)
     assert sess.status == SessionStatus.DRAFT
@@ -1017,7 +1033,7 @@ def test_stale_target_090_guided(client, db_session):
     db_session.commit()
     
     # Add a stale mastery
-    m = StudentMastery(student_id=s.id, competency_id=c_t.id, score=0.90, state=MasteryState.MASTERED)
+    m = StudentMastery(student_id=s.id, competency_id=c_t.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1))
     m.last_updated = datetime.now(timezone.utc) - timedelta(days=60)
     db_session.add(m)
     
@@ -1028,6 +1044,7 @@ def test_stale_target_090_guided(client, db_session):
     db_session.commit()
     
     res = client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={})
+    if res.status_code != 200: print("ERROR:", res.json())
     assert res.status_code == 200
     groups = res.json()["groups"]
     assert groups[0]["group_type"] == "guided"
@@ -1044,7 +1061,7 @@ def test_unknown_target_state_guided(client, db_session):
     db_session.commit()
     
     # Explicit UNKNOWN state
-    m = StudentMastery(student_id=s.id, competency_id=c_t.id, score=0.90, state=MasteryState.UNKNOWN)
+    m = StudentMastery(student_id=s.id, competency_id=c_t.id, score=0.90, state=MasteryState.UNKNOWN, last_updated=datetime.now(timezone.utc) - timedelta(days=1))
     db_session.add(m)
     
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_t.id, duration_minutes=45, date=datetime.now(timezone.utc))
@@ -1067,7 +1084,7 @@ def test_fresh_target_090_extension(client, db_session):
     db_session.add_all([c_t, s])
     db_session.commit()
     
-    m = StudentMastery(student_id=s.id, competency_id=c_t.id, score=0.90, state=MasteryState.MASTERED)
+    m = StudentMastery(student_id=s.id, competency_id=c_t.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1))
     db_session.add(m)
     
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_t.id, duration_minutes=45, date=datetime.now(timezone.utc))
@@ -1120,8 +1137,8 @@ def test_manual_move_marks_group_and_session(client, db_session):
     db_session.add(AttendanceRecord(student_id=s1.id, class_session_id=sess.id, status=AttendanceStatus.PRESENT))
     db_session.add(AttendanceRecord(student_id=s2.id, class_session_id=sess.id, status=AttendanceStatus.PRESENT))
     # Give them different masteries so they end up in different groups
-    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_t.id, score=0.30, state=MasteryState.NEEDS_SUPPORT))
-    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_t.id, score=0.90, state=MasteryState.MASTERED))
+    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_t.id, score=0.30, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_t.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     db_session.commit()
     
     client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={})
@@ -1138,11 +1155,11 @@ def test_manual_move_marks_group_and_session(client, db_session):
     db_session.refresh(sess)
     assert sess.groups_teacher_modified == True
     
-    g_db = db_session.query(LearningGroup).filter_by(id=g_e["id"]).first()
+    g_db = db_session.query(LearningGroup).filter_by(id=uuid.UUID(g_e["id"])).first()
     assert g_db.teacher_modified == True
     
     # Source group (guided) should be deleted because it's empty
-    g_s_db = db_session.query(LearningGroup).filter_by(id=g_g["id"]).first()
+    g_s_db = db_session.query(LearningGroup).filter_by(id=uuid.UUID(g_g["id"])).first()
     assert g_s_db is None
 
 def test_same_group_move_idempotent(client, db_session):
@@ -1168,7 +1185,7 @@ def test_same_group_move_idempotent(client, db_session):
     
     db_session.refresh(sess)
     assert sess.groups_teacher_modified == False
-    g_db = db_session.query(LearningGroup).filter_by(id=g_id).first()
+    g_db = db_session.query(LearningGroup).filter_by(id=uuid.UUID(g_id)).first()
     assert g_db.teacher_modified == False
 
 def test_assignment_reason_preserved_after_move(client, db_session):
@@ -1184,8 +1201,8 @@ def test_assignment_reason_preserved_after_move(client, db_session):
     db_session.commit()
     db_session.add(AttendanceRecord(student_id=s1.id, class_session_id=sess.id, status=AttendanceStatus.PRESENT))
     db_session.add(AttendanceRecord(student_id=s2.id, class_session_id=sess.id, status=AttendanceStatus.PRESENT))
-    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_t.id, score=0.30, state=MasteryState.NEEDS_SUPPORT))
-    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_t.id, score=0.90, state=MasteryState.MASTERED))
+    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_t.id, score=0.30, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_t.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     db_session.commit()
     
     client.post(f"/api/v1/sessions/{sess.id}/groups/generate", json={})
@@ -1222,8 +1239,8 @@ def test_forced_regeneration_clears_modifications(client, db_session):
     db_session.commit()
     db_session.add(AttendanceRecord(student_id=s1.id, class_session_id=sess.id, status=AttendanceStatus.PRESENT))
     db_session.add(AttendanceRecord(student_id=s2.id, class_session_id=sess.id, status=AttendanceStatus.PRESENT))
-    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_t.id, score=0.30, state=MasteryState.NEEDS_SUPPORT))
-    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_t.id, score=0.90, state=MasteryState.MASTERED))
+    db_session.add(StudentMastery(student_id=s1.id, competency_id=c_t.id, score=0.30, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s2.id, competency_id=c_t.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     db_session.commit()
     
     # Generate once

@@ -1,3 +1,4 @@
+from datetime import timedelta
 import pytest
 import uuid
 from datetime import datetime, timezone, timedelta
@@ -25,7 +26,7 @@ def test_rajkumar_likely_gap(client, db_session):
     db_session.add(CompetencyPrerequisite(competency_id=c_sub.id, prerequisite_competency_id=c_add.id))
     db_session.commit()
     
-    db_session.add(StudentMastery(student_id=raj.id, competency_id=c_add.id, score=0.48, state=MasteryState.DEVELOPING))
+    db_session.add(StudentMastery(student_id=raj.id, competency_id=c_add.id, score=0.48, state=MasteryState.DEVELOPING, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     
     base_t = datetime.now(timezone.utc)
     mon = ClassSession(classroom_id=c.id, target_competency_id=c_add.id, duration_minutes=45, status=SessionStatus.COMPLETED, date=base_t - timedelta(days=5))
@@ -61,7 +62,7 @@ def test_aditi_high_mastery_despite_absence_is_ready(client, db_session):
     db_session.commit()
     db_session.add(CompetencyPrerequisite(competency_id=c_b.id, prerequisite_competency_id=c_a.id))
     
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     
     base_t = datetime.now(timezone.utc)
     past = ClassSession(classroom_id=c.id, target_competency_id=c_a.id, duration_minutes=45, status=SessionStatus.COMPLETED, date=base_t - timedelta(days=2))
@@ -90,7 +91,7 @@ def test_kiran_direct_insufficient_transitive_confirmed(client, db_session):
     db_session.add(CompetencyPrerequisite(competency_id=c_sub.id, prerequisite_competency_id=c_add.id))
     db_session.add(CompetencyPrerequisite(competency_id=c_add.id, prerequisite_competency_id=c_pv.id))
     
-    db_session.add(StudentMastery(student_id=kiran.id, competency_id=c_pv.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
+    db_session.add(StudentMastery(student_id=kiran.id, competency_id=c_pv.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     db_session.commit()
     
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_sub.id, duration_minutes=45)
@@ -152,7 +153,7 @@ def test_confirmed_gap(client, db_session):
     db_session.commit()
     db_session.add(CompetencyPrerequisite(competency_id=c_b.id, prerequisite_competency_id=c_a.id))
     
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_b.id, duration_minutes=45)
     db_session.add(sess)
     db_session.commit()
@@ -172,7 +173,7 @@ def test_developing_full_attendance(client, db_session):
     db_session.commit()
     db_session.add(CompetencyPrerequisite(competency_id=c_b.id, prerequisite_competency_id=c_a.id))
     
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.55, state=MasteryState.DEVELOPING))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.55, state=MasteryState.DEVELOPING, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     
     base_t = datetime.now(timezone.utc)
     past = ClassSession(classroom_id=c.id, target_competency_id=c_a.id, duration_minutes=45, status=SessionStatus.COMPLETED, date=base_t - timedelta(days=2))
@@ -198,7 +199,7 @@ def test_developing_recent_absence(client, db_session):
     db_session.commit()
     db_session.add(CompetencyPrerequisite(competency_id=c_b.id, prerequisite_competency_id=c_a.id))
     
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.55, state=MasteryState.DEVELOPING))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.55, state=MasteryState.DEVELOPING, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     
     base_t = datetime.now(timezone.utc)
     past = ClassSession(classroom_id=c.id, target_competency_id=c_a.id, duration_minutes=45, status=SessionStatus.COMPLETED, date=base_t - timedelta(days=2))
@@ -222,7 +223,7 @@ def test_developing_old_absence(client, db_session):
     db_session.commit()
     db_session.add(CompetencyPrerequisite(competency_id=c_b.id, prerequisite_competency_id=c_a.id))
     
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.55, state=MasteryState.DEVELOPING))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.55, state=MasteryState.DEVELOPING, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     
     base_t = datetime.now(timezone.utc)
     # Absent 90 days ago
@@ -252,7 +253,7 @@ def test_stale_mastery(client, db_session):
     db_session.commit()
     db_session.add(CompetencyPrerequisite(competency_id=c_b.id, prerequisite_competency_id=c_a.id))
     
-    m = StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED)
+    m = StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1))
     db_session.add(m)
     db_session.commit()
     
@@ -319,7 +320,7 @@ def test_current_late(client, db_session):
     db_session.commit()
     db_session.add(CompetencyPrerequisite(competency_id=c_b.id, prerequisite_competency_id=c_a.id))
     
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_b.id, duration_minutes=45)
     db_session.add(sess)
@@ -375,7 +376,7 @@ def test_direct_vs_transitive_precedence(client, db_session):
     db_session.add(CompetencyPrerequisite(competency_id=c_c.id, prerequisite_competency_id=c_b.id))
     db_session.add(CompetencyPrerequisite(competency_id=c_b.id, prerequisite_competency_id=c_a.id))
     
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_b.id, score=0.90, state=MasteryState.MASTERED))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_b.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     db_session.commit()
     
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_c.id, duration_minutes=45)
@@ -401,8 +402,8 @@ def test_multiple_direct_prerequisites(client, db_session):
     db_session.add(CompetencyPrerequisite(competency_id=c_tar.id, prerequisite_competency_id=c_a.id))
     db_session.add(CompetencyPrerequisite(competency_id=c_tar.id, prerequisite_competency_id=c_b.id))
     
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED))
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_b.id, score=0.20, state=MasteryState.NEEDS_SUPPORT))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_b.id, score=0.20, state=MasteryState.NEEDS_SUPPORT, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     db_session.commit()
     
     sess = ClassSession(classroom_id=c.id, target_competency_id=c_tar.id, duration_minutes=45)
@@ -675,7 +676,7 @@ def test_deterministic_repeated_calls(client, db_session):
     db_session.commit()
     db_session.add(CompetencyPrerequisite(competency_id=c_b.id, prerequisite_competency_id=c_a.id))
     
-    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.48, state=MasteryState.DEVELOPING))
+    db_session.add(StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.48, state=MasteryState.DEVELOPING, last_updated=datetime.now(timezone.utc) - timedelta(days=1)))
     
     base_t = datetime.now(timezone.utc)
     past = ClassSession(classroom_id=c.id, target_competency_id=c_a.id, duration_minutes=45, status=SessionStatus.COMPLETED, date=base_t - timedelta(days=2))
@@ -708,7 +709,7 @@ def test_future_mastery_no_historical_evidence(client, db_session):
     db_session.add(AttendanceRecord(student_id=s.id, class_session_id=sess.id, status=AttendanceStatus.PRESENT))
     
     # Mastery updated Sep 10
-    m = StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED)
+    m = StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1))
     db_session.add(m)
     db_session.commit()
     m.last_updated = datetime(2025, 9, 10, tzinfo=timezone.utc)
@@ -742,13 +743,13 @@ def test_future_mastery_with_older_historical_evidence(client, db_session):
     db_session.add(AttendanceRecord(student_id=s.id, class_session_id=sess.id, status=AttendanceStatus.PRESENT))
     
     # Mastery on Sep 10
-    m = StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED)
+    m = StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1))
     db_session.add(m)
     db_session.commit()
     m.last_updated = datetime(2025, 9, 10, tzinfo=timezone.utc)
     
     # Evidence on Aug 30
-    ev = MasteryEvidence(student_id=s.id, competency_id=c_a.id, source_type=EvidenceSource.MANUAL_ASSESSMENT, score=0.55)
+    ev = MasteryEvidence(student_id=s.id, competency_id=c_a.id, source_type=EvidenceSource.MANUAL_ASSESSMENT, score=0.55, created_at=datetime.now(timezone.utc) - timedelta(days=1))
     db_session.add(ev)
     db_session.commit()
     ev.created_at = datetime(2025, 8, 30, tzinfo=timezone.utc)
@@ -777,7 +778,7 @@ def test_current_valid_mastery(client, db_session):
     db_session.commit()
     db_session.add(AttendanceRecord(student_id=s.id, class_session_id=sess.id, status=AttendanceStatus.PRESENT))
     
-    m = StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED)
+    m = StudentMastery(student_id=s.id, competency_id=c_a.id, score=0.90, state=MasteryState.MASTERED, last_updated=datetime.now(timezone.utc) - timedelta(days=1))
     db_session.add(m)
     db_session.commit()
     m.last_updated = datetime(2025, 9, 9, tzinfo=timezone.utc)

@@ -43,38 +43,32 @@ def chunk_text(text: str) -> List[str]:
         nonlocal current_chunk
         if not current_chunk:
             current_chunk = block
-            return
-            
-        combined = current_chunk + "\n\n" + block
-        if len(combined) <= CURRICULUM_CHUNK_MAX_CHARS:
-            current_chunk = combined
         else:
-            flush()
-            # use overlap from previous chunk? 
-            # Overlap should be up to CURRICULUM_CHUNK_OVERLAP_CHARS from end of previous.
-            prev = chunks[-1]
-            overlap = prev[-CURRICULUM_CHUNK_OVERLAP_CHARS:] if len(prev) > CURRICULUM_CHUNK_OVERLAP_CHARS else prev
-            # find last space to avoid cutting words
-            last_space = overlap.find(' ')
-            if last_space != -1 and last_space < len(overlap) - 1:
-                overlap = overlap[last_space+1:]
-            current_chunk = (overlap + "\n" + block).strip() if overlap else block
+            combined = current_chunk + "\n\n" + block
+            if len(combined) <= CURRICULUM_CHUNK_MAX_CHARS:
+                current_chunk = combined
+            else:
+                flush()
+                prev = chunks[-1] if chunks else ""
+                overlap = prev[-CURRICULUM_CHUNK_OVERLAP_CHARS:] if len(prev) > CURRICULUM_CHUNK_OVERLAP_CHARS else prev
+                last_space = overlap.find(' ')
+                if last_space != -1 and last_space < len(overlap) - 1:
+                    overlap = overlap[last_space+1:]
+                current_chunk = (overlap + "\n" + block).strip() if overlap else block
+
+        while len(current_chunk) > CURRICULUM_CHUNK_MAX_CHARS:
+            split_point = current_chunk.rfind(' ', 0, CURRICULUM_CHUNK_MAX_CHARS)
+            if split_point == -1 or split_point < CURRICULUM_CHUNK_MAX_CHARS // 2:
+                split_point = CURRICULUM_CHUNK_MAX_CHARS
+            part = current_chunk[:split_point]
+            chunks.append(part.strip())
             
-            # If the block itself is huge, we must split it deterministically
-            while len(current_chunk) > CURRICULUM_CHUNK_MAX_CHARS:
-                # Split at MAX chars deterministically
-                split_point = current_chunk.rfind(' ', 0, CURRICULUM_CHUNK_MAX_CHARS)
-                if split_point == -1 or split_point < CURRICULUM_CHUNK_MAX_CHARS // 2:
-                    split_point = CURRICULUM_CHUNK_MAX_CHARS
-                part = current_chunk[:split_point]
-                chunks.append(part.strip())
-                
-                rem = current_chunk[split_point:].strip()
-                overlap = part[-CURRICULUM_CHUNK_OVERLAP_CHARS:] if len(part) > CURRICULUM_CHUNK_OVERLAP_CHARS else part
-                ls = overlap.find(' ')
-                if ls != -1 and ls < len(overlap) - 1:
-                    overlap = overlap[ls+1:]
-                current_chunk = (overlap + " " + rem).strip() if overlap else rem
+            rem = current_chunk[split_point:].strip()
+            overlap = part[-CURRICULUM_CHUNK_OVERLAP_CHARS:] if len(part) > CURRICULUM_CHUNK_OVERLAP_CHARS else part
+            ls = overlap.find(' ')
+            if ls != -1 and ls < len(overlap) - 1:
+                overlap = overlap[ls+1:]
+            current_chunk = (overlap + " " + rem).strip() if overlap else rem
 
     for block in blocks:
         block = block.strip()

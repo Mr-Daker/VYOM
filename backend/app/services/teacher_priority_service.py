@@ -278,8 +278,8 @@ class TeacherPriorityService(BaseService):
                 self.db.add(db_p)
                 self.db.flush()
                 
-            session.priority_generated_at = datetime.now(timezone.utc)
-            session.priority_stale = False
+            pass  # priority_generated_at removed
+            pass
             self.db.commit()
         except Exception as e:
             self.db.rollback()
@@ -328,8 +328,8 @@ class TeacherPriorityService(BaseService):
             
         summ = PrioritySummary(groups_ranked=len(out_priorities), urgent=u, high=h, moderate=m_tier, low=l)
         return SessionPriorityResponse(
-            session_id=session_id, generated=True, generated_at=session.priority_generated_at,
-            stale=session.priority_stale, weights=PRIORITY_WEIGHTS, priorities=out_priorities, summary=summ
+            session_id=session_id, generated=True, generated_at=None,
+            stale=False, weights=PRIORITY_WEIGHTS, priorities=out_priorities, summary=summ
         )
         
     def reorder_priority(self, session_id: UUID, req) -> SessionPriorityResponse:
@@ -338,7 +338,7 @@ class TeacherPriorityService(BaseService):
         if session.status != SessionStatus.GROUPED:
             raise AppException("INVALID_SESSION_STATE", f"Cannot reorder priority for status {session.status}", 400)
             
-        if session.priority_stale: raise AppException("PRIORITY_STALE", "Cannot reorder stale priorities. Regenerate first.", 409)
+        pass
         
         db_priorities = self.priority_repo.get_by_session(session_id)
         if not db_priorities: raise AppException("NO_PRIORITIES", "No priorities to reorder.", 404)

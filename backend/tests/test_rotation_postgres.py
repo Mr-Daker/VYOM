@@ -1,4 +1,7 @@
 import pytest
+pytestmark = pytest.mark.postgres
+
+import pytest
 import os
 import uuid
 from sqlalchemy import text
