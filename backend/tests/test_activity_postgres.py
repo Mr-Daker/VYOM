@@ -25,9 +25,9 @@ def activity_postgres_db(postgres_db_engine, monkeypatch):
         conn.commit()
 
     from app.core.config import settings
-    monkeypatch.setattr(settings, "DATABASE_URL", str(postgres_db_engine.url))
+    monkeypatch.setattr(settings, "DATABASE_URL", postgres_db_engine.url.render_as_string(hide_password=False))
     alembic_cfg = Config("alembic.ini")
-    alembic_cfg.set_main_option("sqlalchemy.url", str(postgres_db_engine.url))
+    alembic_cfg.set_main_option("sqlalchemy.url", postgres_db_engine.url.render_as_string(hide_password=False))
     
     command.upgrade(alembic_cfg, "008_grounded_activity_generation")
     
@@ -64,6 +64,7 @@ def create_valid_parents(session: Session):
 
     doc = CurriculumDocument(id=uuid.uuid4(), title="Doc", source_type="textbook", source_name="N", subject="math", language="en", version="1", checksum="chk", status="ready", embedding_status="ready")
     session.add(doc)
+    session.flush()
     
     chunk = CurriculumChunk(id=uuid.uuid4(), document_id=doc.id, chunk_index=0, text="A", text_hash="A")
     session.add(chunk)

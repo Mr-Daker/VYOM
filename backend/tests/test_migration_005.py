@@ -10,10 +10,10 @@ def test_alembic_004_to_005(postgres_db_engine, monkeypatch):
     from alembic import command
     
     # 1. Bind Alembic to the exact same postgres test database
-    monkeypatch.setattr(settings, "DATABASE_URL", str(postgres_db_engine.url))
+    monkeypatch.setattr(settings, "DATABASE_URL", postgres_db_engine.url.render_as_string(hide_password=False))
     
     alembic_cfg = Config("alembic.ini")
-    alembic_cfg.set_main_option("sqlalchemy.url", str(postgres_db_engine.url))
+    alembic_cfg.set_main_option("sqlalchemy.url", postgres_db_engine.url.render_as_string(hide_password=False))
     
     # 2. Upgrade to Revision 004
     command.upgrade(alembic_cfg, "004_teacher_priority")

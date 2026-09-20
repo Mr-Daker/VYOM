@@ -737,6 +737,23 @@ def test_generate_invalid_session_state(
         == "INVALID_SESSION_STATE"
     )
 
+
+def test_generate_draft_no_priorities(client, db_session):
+    ctx = setup_rotation_session(db_session)
+    ctx["session"].status = SessionStatus.DRAFT.value
+    ctx["session"].priority_generated_at = None
+    db_session.commit()
+
+    res = client.post(
+        f"/api/v1/sessions/{ctx['session'].id}/rotation/generate"
+    )
+
+    assert res.status_code == 400
+    assert (
+        res.json()["error"]["code"]
+        == "INVALID_SESSION_STATE"
+    )
+
 # -----------------
 # 6. SEMANTIC ACCEPTANCE
 # -----------------

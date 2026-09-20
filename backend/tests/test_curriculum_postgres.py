@@ -16,7 +16,7 @@ def curriculum_postgres_db(postgres_db_engine, monkeypatch):
     assert postgres_db_engine.url.database.endswith("_test")
 
     # Explicitly wire up the test DB url
-    url = str(postgres_db_engine.url)
+    url = postgres_db_engine.url.render_as_string(hide_password=False)
     monkeypatch.setattr(settings, "DATABASE_URL", url)
 
     alembic_cfg = Config("alembic.ini")
@@ -77,10 +77,9 @@ def test_orm_pgvector_roundtrip_and_distance(curriculum_postgres_db):
     doc_id = uuid4()
     
     with Session(curriculum_postgres_db) as session:
-        doc = CurriculumDocument(
-            id=doc_id, title="T", source_type="reference", source_name="T", subject="math", language="en", version="1", checksum="c1", status="ready", embedding_status="ready"
-        )
+        doc = CurriculumDocument(id=doc_id, title="T", source_type="reference", source_name="T", subject="math", language="en", version="1", checksum="c1", status="ready", embedding_status="ready")
         session.add(doc)
+        session.flush()
         
         v_near = [1.0] + [0.0]*767
         v_far = [-1.0] + [0.0]*767
@@ -98,6 +97,9 @@ def test_orm_pgvector_roundtrip_and_distance(curriculum_postgres_db):
         assert len(chunk.embedding) == 768
         assert type(chunk.embedding) == list
         assert chunk.embedding[0] == 1.0
+        
+        c_near_id = c_near.id
+        c_far_id = c_far.id
 
     # Actual Vector query
     with curriculum_postgres_db.connect() as conn:
@@ -105,9 +107,10 @@ def test_orm_pgvector_roundtrip_and_distance(curriculum_postgres_db):
         res = conn.execute(text(
             f"SELECT id FROM curriculum_chunks ORDER BY embedding <=> '{v_query}'::vector LIMIT 2;"
         )).fetchall()
-        
-        assert str(res[0][0]) == str(c_near.id)
-        assert str(res[1][0]) == str(c_far.id)
+
+        assert str(res[0][0]) == str(c_near_id)
+        assert str(res[1][0]) == str(c_far_id)
+
 
 def create_valid_document(session, checksum=None):
     from uuid import uuid4

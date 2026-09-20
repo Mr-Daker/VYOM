@@ -2,6 +2,31 @@ import json
 import uuid
 from datetime import datetime, timezone
 from sqlalchemy.sql import func
+
+import sqlalchemy.types as types
+
+import sqlalchemy.types as types
+
+class CustomEnum(types.TypeDecorator):
+    impl = types.Enum
+    cache_ok = True
+    
+    def __init__(self, enum_class, enum_name, native_enum=True, **kwargs):
+        self.enum_class = enum_class
+        super().__init__(*[e.value for e in enum_class], name=enum_name, native_enum=native_enum, create_type=False, **kwargs)
+        
+    def process_bind_param(self, value, dialect):
+        if value is None:
+            return None
+        if isinstance(value, self.enum_class):
+            return value.value
+        return value
+        
+    def process_result_value(self, value, dialect):
+        if value is None:
+            return None
+        return self.enum_class(value)
+
 from sqlalchemy import Column, String, Integer, Float, ForeignKey, DateTime, JSON, Boolean, UniqueConstraint, CheckConstraint, Enum
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import UUID
@@ -17,7 +42,7 @@ class User(Base):
     name = Column(String, nullable=False)
     email = Column(String, unique=True, nullable=False)
     password_hash = Column(String, nullable=False)
-    role = Column(Enum(UserRole, name="userrole", values_callable=lambda x: [e.value for e in x]), nullable=False)
+    role = Column(CustomEnum(UserRole, "userrole", native_enum=True), nullable=False)
     created_at = Column(DateTime(timezone=True), default=utc_now)
     updated_at = Column(DateTime(timezone=True), default=utc_now, onupdate=utc_now)
     
@@ -98,7 +123,7 @@ class StudentMastery(Base):
     student_id = Column(UUID(as_uuid=True), ForeignKey("students.id"), nullable=False)
     competency_id = Column(UUID(as_uuid=True), ForeignKey("competencies.id"), nullable=False)
     score = Column(Float, nullable=False)
-    state = Column(Enum(MasteryState, name="masterystate", values_callable=lambda x: [e.value for e in x]), nullable=False)
+    state = Column(CustomEnum(MasteryState, "masterystate", native_enum=True), nullable=False)
     confidence = Column(Float)
     last_updated = Column(DateTime(timezone=True), default=utc_now)
     created_at = Column(DateTime(timezone=True), default=utc_now)
@@ -118,7 +143,7 @@ class MasteryEvidence(Base):
     student_id = Column(UUID(as_uuid=True), ForeignKey("students.id"), nullable=False)
     competency_id = Column(UUID(as_uuid=True), ForeignKey("competencies.id"), nullable=False)
     session_id = Column(UUID(as_uuid=True), ForeignKey("class_sessions.id"), nullable=True)
-    source_type = Column(Enum(EvidenceSource, name="evidencesource", values_callable=lambda x: [e.value for e in x]), nullable=False)
+    source_type = Column(CustomEnum(EvidenceSource, "evidencesource", native_enum=True), nullable=False)
     score = Column(Float, nullable=False)
     confidence = Column(Float)
     metadata_json = Column(JSON, nullable=True)
@@ -141,7 +166,7 @@ class ClassSession(Base):
     target_competency_id = Column(UUID(as_uuid=True), ForeignKey("competencies.id"), nullable=True)
     duration_minutes = Column(Integer)
     available_materials = Column(JSON)
-    status = Column(Enum(SessionStatus, name='session_status_enum', native_enum=False), default=SessionStatus.DRAFT, nullable=False)
+    status = Column(CustomEnum(SessionStatus, "sessionstatus", native_enum=True), default=SessionStatus.DRAFT, nullable=False)
     grouping_warnings = Column(JSON, nullable=True)
     grouping_compressed = Column(Boolean, nullable=False, default=False)
     groups_teacher_modified = Column(Boolean, nullable=False, default=False)
@@ -164,7 +189,7 @@ class AttendanceRecord(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     student_id = Column(UUID(as_uuid=True), ForeignKey("students.id"), nullable=False)
     class_session_id = Column(UUID(as_uuid=True), ForeignKey("class_sessions.id"), nullable=False)
-    status = Column(Enum(AttendanceStatus, name="attendancestatus", values_callable=lambda x: [e.value for e in x]), nullable=False)
+    status = Column(CustomEnum(AttendanceStatus, "attendancestatus", native_enum=True), nullable=False)
     created_at = Column(DateTime(timezone=True), default=utc_now)
     updated_at = Column(DateTime(timezone=True), default=utc_now, onupdate=utc_now)
 
@@ -182,9 +207,9 @@ class LearningGroup(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     session_id = Column(UUID(as_uuid=True), ForeignKey('class_sessions.id', ondelete='CASCADE'), nullable=False)
     name = Column(String, nullable=False)
-    group_type = Column(Enum(GroupType, name='group_type_enum', native_enum=False), nullable=False)
+    group_type = Column(CustomEnum(GroupType, "group_type_enum", native_enum=False), nullable=False)
     focus_competency_id = Column(UUID(as_uuid=True), ForeignKey('competencies.id', ondelete='SET NULL'), nullable=True)
-    check_mode = Column(Enum(CheckMode, name='check_mode_enum', native_enum=False), nullable=True)
+    check_mode = Column(CustomEnum(CheckMode, "check_mode_enum", native_enum=False), nullable=True)
     reason = Column(String, nullable=False)
     mixed_needs = Column(Boolean, nullable=False, default=False)
     teacher_modified = Column(Boolean, nullable=False, default=False)
@@ -306,7 +331,7 @@ class RotationSlot(Base):
     session_id = Column(UUID(as_uuid=True), ForeignKey("class_sessions.id", ondelete="CASCADE"), nullable=False)
     
     sequence_index = Column(Integer, nullable=False)
-    slot_type = Column(Enum(RotationSlotType, name="rotationslottype", values_callable=lambda x: [e.value for e in x]), nullable=False)
+    slot_type = Column(CustomEnum(RotationSlotType, "rotationslottype", native_enum=True), nullable=False)
     
     group_id = Column(UUID(as_uuid=True), ForeignKey("learning_groups.id", ondelete="RESTRICT"), nullable=True)
     

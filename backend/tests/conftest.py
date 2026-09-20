@@ -65,3 +65,31 @@ def postgres_db_engine():
         yield engine
     finally:
         engine.dispose()
+
+import os
+import subprocess
+from sqlalchemy import create_engine, text
+
+@pytest.fixture(scope="session")
+def migrated_postgres_engine():
+    url = os.getenv(
+        "TEST_DATABASE_URL",
+        "postgresql+psycopg://postgres:postgres@localhost:5433/saarthi_test",
+    )
+    engine = create_engine(url)
+    
+    with engine.begin() as conn:
+        db = conn.execute(text("SELECT current_database()")).scalar()
+        assert db.endswith("_test")
+        
+        conn.execute(text("DROP SCHEMA public CASCADE"))
+        conn.execute(text("CREATE SCHEMA public"))
+        
+    os.environ["DATABASE_URL"] = engine.url.render_as_string(hide_password=False)
+    
+    subprocess.run(["alembic", "upgrade", "head"], check=True)
+    
+    try:
+        yield engine
+    finally:
+        engine.dispose()

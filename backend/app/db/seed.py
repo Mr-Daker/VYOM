@@ -11,8 +11,8 @@ from app.models.enums import UserRole, SessionStatus, AttendanceStatus, MasteryS
 def utc_now():
     return datetime.now(timezone.utc)
 
-def run_seed():
-    db = SessionLocal()
+def run_seed(session_factory=SessionLocal):
+    db = session_factory()
     
     try:
         # Idempotency: find demo teacher

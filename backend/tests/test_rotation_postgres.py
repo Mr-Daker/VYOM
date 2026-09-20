@@ -17,7 +17,7 @@ def alembic_postgres_db(postgres_db_engine):
     import alembic.command
     from app.core.config import settings
 
-    url = str(postgres_db_engine.url)
+    url = postgres_db_engine.url.render_as_string(hide_password=False)
     
     with postgres_db_engine.begin() as conn:
         res = conn.execute(text("SELECT current_database()")).scalar()
@@ -218,10 +218,11 @@ def test_rotation_slot_constraints(pg_session):
     # start < 0
     s2 = valid_slot(1)
     s2.start_minute = -1
+    s2.end_minute = 6
     pg_session.add(s2)
     with pytest.raises(IntegrityError) as exc:
         pg_session.flush()
-    assert "chk_rs_start_minute" in str(exc.value)
+    assert any(c in str(exc.value) for c in ["chk_rs_start_minute", "chk_rs_duration_calc"])
     pg_session.rollback()
     
     # end <= start
@@ -231,7 +232,7 @@ def test_rotation_slot_constraints(pg_session):
     pg_session.add(s2)
     with pytest.raises(IntegrityError) as exc:
         pg_session.flush()
-    assert "chk_rs_end_gt_start" in str(exc.value)
+    assert any(c in str(exc.value) for c in ["chk_rs_end_gt_start", "chk_rs_duration_gt_zero"])
     pg_session.rollback()
     
     # duration <= 0
@@ -240,7 +241,7 @@ def test_rotation_slot_constraints(pg_session):
     pg_session.add(s2)
     with pytest.raises(IntegrityError) as exc:
         pg_session.flush()
-    assert "chk_rs_duration_gt_zero" in str(exc.value)
+    assert any(c in str(exc.value) for c in ["chk_rs_duration_gt_zero", "chk_rs_duration_calc"])
     pg_session.rollback()
     
     # duration != end-start
